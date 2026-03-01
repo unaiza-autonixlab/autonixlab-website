@@ -29,9 +29,9 @@ const FounderBar = () => {
           <div>
             <p className="font-mono font-semibold text-foreground text-lg">Unaiza Masood</p>
             <p className="text-sm text-primary font-mono mb-3">Founder, AutonixLab</p>
-            <p className="text-sm text-muted-foreground font-sans max-w-md leading-relaxed">
-              I architect zero-touch automation systems that free agency founders from
-              operational chaos — turning manual workflows into machines that run 24/7.
+            <p className="text-sm text-muted-foreground font-sans max-w-md leading-relaxed">I architect zero-touch automation systems that free agency founders from operational chaos by turning manual workflows into machines that run 24/7.
+
+
             </p>
           </div>
         </div>
