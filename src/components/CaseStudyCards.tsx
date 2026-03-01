@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Terminal, ArrowRight } from "lucide-react";
+import { Terminal, ArrowRight, Upload } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface CaseStudy {
@@ -62,6 +62,19 @@ const caseStudies: CaseStudy[] = [
 
 const FlipCard = ({ study }: { study: CaseStudy }) => {
   const [flipped, setFlipped] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState<string | null>(study.image || null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        setUploadedImage(ev.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div
@@ -72,13 +85,26 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
       <div className={`flip-card-inner w-full h-full relative ${flipped ? "flipped" : ""}`}>
         {/* Front */}
         <div className="flip-card-front absolute inset-0 bg-card border border-border rounded-lg overflow-hidden hover:shadow-[0_8px_30px_hsl(20_100%_60%/0.2)] transition-all duration-300 hover:-translate-y-2 flex flex-col">
-          <div className="h-[55%] bg-secondary flex items-center justify-center border-b border-border relative overflow-hidden">
-            {study.image ? (
-              <img src={study.image} alt={`${study.name} screenshot`} className="w-full h-full object-cover" />
+          <div
+            className="h-[55%] bg-secondary flex items-center justify-center border-b border-border relative overflow-hidden cursor-pointer group"
+            onClick={(e) => {
+              e.stopPropagation();
+              fileInputRef.current?.click();
+            }}
+          >
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleImageUpload}
+            />
+            {uploadedImage ? (
+              <img src={uploadedImage} alt={`${study.name} screenshot`} className="w-full h-full object-cover" />
             ) : (
               <div className="text-center">
-                <Terminal className="w-10 h-10 sm:w-12 sm:h-12 text-muted-foreground mx-auto mb-2" />
-                <p className="text-xs text-muted-foreground font-mono">System Screenshot</p>
+                <Upload className="w-10 h-10 sm:w-12 sm:h-12 text-muted-foreground mx-auto mb-2 group-hover:text-primary transition-colors" />
+                <p className="text-xs text-muted-foreground font-mono group-hover:text-primary transition-colors">Click to upload screenshot</p>
               </div>
             )}
           </div>
