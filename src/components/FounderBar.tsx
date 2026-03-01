@@ -21,10 +21,10 @@ const FounderBar = () => {
           {/* Headshot placeholder */}
           <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-primary bg-card flex items-center justify-center glow-orange overflow-hidden">
             <img
-              src="/headshot.jpg"
+
               alt="Unaiza Masood"
-              className="w-full h-full object-cover"
-            />
+              className="w-full h-full object-cover" src="/lovable-uploads/b8af770b-9503-4384-998a-1211b612d8f8.png" />
+
           </div>
           <div>
             <p className="font-mono font-semibold text-foreground text-lg">Unaiza Masood</p>
