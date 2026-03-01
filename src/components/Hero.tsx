@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import FlickerTriangle from "./FlickerTriangle";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-32 sm:pt-36 overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-30" />
-      {/* Matrix rain canvas */}
-      <MatrixRain />
+      <GlitchGrid />
 
       <div className="relative z-10 max-w-4xl mx-auto w-full text-center">
         <motion.div
@@ -34,15 +33,11 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-
     </section>
   );
 };
 
-// Lightweight matrix rain at 5% opacity
-import { useEffect, useRef } from "react";
-
-const MatrixRain = () => {
+const GlitchGrid = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -52,35 +47,82 @@ const MatrixRain = () => {
     if (!ctx) return;
 
     let animId: number;
-    const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノ";
-    const fontSize = 14;
-    let columns: number;
-    let drops: number[];
+    const cellSize = 40;
+    let time = 0;
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
-      columns = Math.floor(canvas.width / fontSize);
-      drops = Array(columns).fill(1).map(() => Math.random() * -100);
     };
-
     resize();
     window.addEventListener("resize", resize);
 
     const draw = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#00FF41";
-      ctx.font = `${fontSize}px monospace`;
+      time += 0.005;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
+      const cols = Math.ceil(canvas.width / cellSize) + 1;
+      const rows = Math.ceil(canvas.height / cellSize) + 1;
+
+      // Draw grid lines
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.04)";
+      ctx.lineWidth = 1;
+
+      for (let i = 0; i <= cols; i++) {
+        const x = i * cellSize;
+        // Occasional horizontal glitch offset
+        const glitch = Math.sin(time * 3 + i * 0.5) > 0.95 ? (Math.random() - 0.5) * 8 : 0;
+        ctx.beginPath();
+        ctx.moveTo(x + glitch, 0);
+        ctx.lineTo(x + glitch, canvas.height);
+        ctx.stroke();
       }
+
+      for (let j = 0; j <= rows; j++) {
+        const y = j * cellSize;
+        const glitch = Math.sin(time * 2.5 + j * 0.7) > 0.95 ? (Math.random() - 0.5) * 8 : 0;
+        ctx.beginPath();
+        ctx.moveTo(0, y + glitch);
+        ctx.lineTo(canvas.width, y + glitch);
+        ctx.stroke();
+      }
+
+      // Orange pulse waves traveling across grid
+      for (let i = 0; i < 3; i++) {
+        const wavePos = ((time * 0.4 + i * 0.33) % 1) * (cols + 10) - 5;
+        for (let j = 0; j <= rows; j++) {
+          const col = Math.floor(wavePos);
+          if (col >= 0 && col <= cols) {
+            const intensity = Math.max(0, 1 - Math.abs(wavePos - col) * 0.5);
+            ctx.fillStyle = `rgba(255, 120, 50, ${intensity * 0.12})`;
+            ctx.fillRect(col * cellSize, j * cellSize, cellSize, cellSize);
+          }
+        }
+      }
+
+      // Random glitch blocks
+      if (Math.random() > 0.96) {
+        const gx = Math.floor(Math.random() * cols) * cellSize;
+        const gy = Math.floor(Math.random() * rows) * cellSize;
+        const gw = (Math.floor(Math.random() * 3) + 1) * cellSize;
+        const gh = (Math.floor(Math.random() * 2) + 1) * cellSize;
+        ctx.fillStyle = `rgba(255, 120, 50, ${Math.random() * 0.08 + 0.02})`;
+        ctx.fillRect(gx, gy, gw, gh);
+      }
+
+      // Intersection dots
+      for (let i = 0; i <= cols; i++) {
+        for (let j = 0; j <= rows; j++) {
+          const dist = Math.sin(time + i * 0.3 + j * 0.3);
+          if (dist > 0.7) {
+            ctx.fillStyle = `rgba(255, 120, 50, ${(dist - 0.7) * 0.5})`;
+            ctx.beginPath();
+            ctx.arc(i * cellSize, j * cellSize, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+
       animId = requestAnimationFrame(draw);
     };
 
@@ -94,7 +136,7 @@ const MatrixRain = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full opacity-[0.05] pointer-events-none"
+      className="absolute inset-0 w-full h-full pointer-events-none"
     />
   );
 };
