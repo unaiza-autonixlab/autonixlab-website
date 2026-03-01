@@ -3,8 +3,8 @@ import { Monitor, Users, Clock } from "lucide-react";
 
 const stats = [
 { icon: Monitor, label: "Systems Built", value: "50+" },
-{ icon: Users, label: "Agencies Scaled", value: "12+" },
-{ icon: Clock, label: "Hours Saved", value: "10,000+" }];
+{ icon: Users, label: "Agencies Scaled", value: "5+" },
+{ icon: Clock, label: "Hours Saved", value: "1,000+" }];
 
 
 const FounderBar = () => {
