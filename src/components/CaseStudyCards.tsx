@@ -1,13 +1,16 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Terminal, ArrowRight, Upload } from "lucide-react";
+import { Terminal, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import competeIqImg from "@/assets/brand_brain_ss.png";
+import leadScoreImg from "@/assets/blog_post_ss.png";
+import leadMachineImg from "@/assets/lead_machine_ss.png";
 
 interface CaseStudy {
   slug: string;
   name: string;
   oneLiner: string;
-  image?: string;
+  image: string;
   problem: string;
   solution: string;
   results: { metric: string; before: string; after: string }[];
@@ -20,6 +23,7 @@ const caseStudies: CaseStudy[] = [
     slug: "compete-iq",
     name: "COMPETE IQ",
     oneLiner: "Your competitors publish content that works. You're guessing. This steals their playbook automatically.",
+    image: competeIqImg,
     problem: "Marketing agencies spend 15+ hours weekly manually tracking competitor content, pricing changes, and campaign strategies. By the time insights reach the strategy team, they're already outdated.",
     solution: "An automated brand intelligence scraper that monitors competitor websites, social channels, and ad libraries in real-time, delivering structured insights to your dashboard every morning.",
     results: [
@@ -34,6 +38,7 @@ const caseStudies: CaseStudy[] = [
     slug: "lead-score",
     name: "LEAD SCORE",
     oneLiner: "Stop wasting sales calls on $500-budget prospects. AI qualifies every lead in 3 seconds.",
+    image: leadScoreImg,
     problem: "Sales teams waste 60% of their calls on unqualified leads. Without intelligent scoring, every inquiry gets the same treatment regardless of budget, timeline, or fit.",
     solution: "An AI-powered lead qualification engine that scores every inbound lead in seconds, auto-routes high-value prospects to sales, and nurtures lower-tier leads via personalized email sequences.",
     results: [
@@ -48,6 +53,7 @@ const caseStudies: CaseStudy[] = [
     slug: "lead-machine",
     name: "THE LEAD MACHINE",
     oneLiner: "Outbound that doesn't feel like spam. AI-personalized outreach at scale.",
+    image: leadMachineImg,
     problem: "Agencies rely on referrals and pray for inbound leads. Cold outreach feels spammy, generic, and produces <1% response rates. Growth plateaus without predictable pipeline.",
     solution: "A full outbound automation engine that researches prospects, crafts personalized messages using AI, sequences multi-channel touchpoints, and books meetings directly into your calendar.",
     results: [
@@ -62,19 +68,6 @@ const caseStudies: CaseStudy[] = [
 
 const FlipCard = ({ study }: { study: CaseStudy }) => {
   const [flipped, setFlipped] = useState(false);
-  const [uploadedImage, setUploadedImage] = useState<string | null>(study.image || null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        setUploadedImage(ev.target?.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   return (
     <div
@@ -85,28 +78,8 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
       <div className={`flip-card-inner w-full h-full relative ${flipped ? "flipped" : ""}`}>
         {/* Front */}
         <div className="flip-card-front absolute inset-0 bg-card border border-border rounded-lg overflow-hidden hover:shadow-[0_8px_30px_hsl(20_100%_60%/0.2)] transition-all duration-300 hover:-translate-y-2 flex flex-col">
-          <div
-            className="h-[55%] bg-secondary flex items-center justify-center border-b border-border relative overflow-hidden cursor-pointer group"
-            onClick={(e) => {
-              e.stopPropagation();
-              fileInputRef.current?.click();
-            }}
-          >
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/*"
-              className="hidden"
-              onChange={handleImageUpload}
-            />
-            {uploadedImage ? (
-              <img src={uploadedImage} alt={`${study.name} screenshot`} className="w-full h-full object-cover" />
-            ) : (
-              <div className="text-center">
-                <Upload className="w-10 h-10 sm:w-12 sm:h-12 text-muted-foreground mx-auto mb-2 group-hover:text-primary transition-colors" />
-                <p className="text-xs text-muted-foreground font-mono group-hover:text-primary transition-colors">Click to upload screenshot</p>
-              </div>
-            )}
+          <div className="h-[55%] bg-secondary border-b border-border overflow-hidden">
+            <img src={study.image} alt={`${study.name} screenshot`} className="w-full h-full object-cover" />
           </div>
           <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
             <div>

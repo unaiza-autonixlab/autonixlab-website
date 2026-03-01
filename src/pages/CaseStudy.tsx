@@ -1,7 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Clock, DollarSign, Zap, Terminal } from "lucide-react";
+import { ArrowLeft, Clock, DollarSign, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import competeIqImg from "@/assets/brand_brain_ss.png";
+import leadScoreImg from "@/assets/blog_post_ss.png";
+import leadMachineImg from "@/assets/lead_machine_ss.png";
+
+const caseStudyImages: Record<string, string> = {
+  "compete-iq": competeIqImg,
+  "lead-score": leadScoreImg,
+  "lead-machine": leadMachineImg,
+};
 
 const allCaseStudies: Record<string, {
   name: string;
@@ -132,12 +141,15 @@ const CaseStudyPage = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="w-full h-64 md:h-80 bg-secondary border border-border rounded-lg flex items-center justify-center mb-12"
+              className="w-full h-64 md:h-80 bg-secondary border border-border rounded-lg overflow-hidden mb-12"
             >
-              <div className="text-center">
-                <Terminal className="w-16 h-16 text-muted-foreground mx-auto mb-3" />
-                <p className="text-sm text-muted-foreground font-mono">System Screenshot</p>
-              </div>
+              {slug && caseStudyImages[slug] ? (
+                <img src={caseStudyImages[slug]} alt={`${study.name} screenshot`} className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <p className="text-sm text-muted-foreground font-mono">System Screenshot</p>
+                </div>
+              )}
             </motion.div>
 
             {/* Problem */}
