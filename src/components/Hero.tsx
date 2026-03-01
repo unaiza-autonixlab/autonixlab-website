@@ -23,7 +23,7 @@ const Hero = () => {
           <div className="inline-flex flex-col items-center">
             <FlickerTriangle className="mb-2" />
             <a
-              href="https://calendly.com/autonixlab/discovery-call"
+              href="https://calendly.com/unaiza-autonixlab/discovery-call"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline-glow inline-block text-sm md:text-base px-6 sm:px-8 py-3 sm:py-4"
