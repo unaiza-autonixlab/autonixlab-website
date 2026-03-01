@@ -1,11 +1,14 @@
 
 
-## Update Formspree Endpoint
+## Fix Calendly Link Across All Files
 
-A single change in `src/components/CTAFooter.tsx` to swap the Formspree endpoint from the current one to yours.
+Replace all 5 instances of `https://calendly.com/autonixlab/discovery-call` with the correct URL:
 
-**What changes:**
-- Line with `https://formspree.io/f/xpwzgkqo` becomes `https://formspree.io/f/mdalvyqk`
+**`https://calendly.com/unaiza-autonixlab/discovery-call`**
 
-After this, all contact form submissions will go directly to the email associated with your Formspree account.
+### Files to update:
+
+1. **src/components/Navbar.tsx** — 2 links (desktop + mobile "Book a Call" buttons)
+2. **src/components/Hero.tsx** — 1 link ("Book a Diagnostic Call" CTA)
+3. **src/pages/CaseStudy.tsx** — 2 links (sidebar "Book This System" + bottom "Deploy This System" CTA)
 
