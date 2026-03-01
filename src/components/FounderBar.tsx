@@ -38,7 +38,7 @@ const FounderBar = () => {
           {stats.map((stat) => (
             <div key={stat.label} className="flex items-center gap-3">
               <stat.icon className="w-5 h-5 text-primary shrink-0" />
-              <div className="text-center sm:text-left">
+              <div className="text-center">
                 <p className="font-mono font-bold text-foreground text-lg">{stat.value}</p>
                 <p className="text-xs text-muted-foreground font-sans">{stat.label}</p>
               </div>

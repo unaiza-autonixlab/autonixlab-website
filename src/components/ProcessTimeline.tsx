@@ -57,7 +57,7 @@ const ProcessTimeline = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex items-center gap-4 text-left"
+              className="flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left gap-4"
             >
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-mono font-bold text-primary-foreground text-xs shrink-0">
                 {step.num}

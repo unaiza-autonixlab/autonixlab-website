@@ -21,7 +21,7 @@ const ProblemSection = () => {
           <span className="text-gradient-orange">Manual Mode</span>
         </motion.h2>
 
-        <div className="space-y-3 sm:space-y-4 mb-10 sm:mb-12 text-left">
+        <div className="space-y-3 sm:space-y-4 mb-10 sm:mb-12 text-center sm:text-left">
           {errors.map((err, i) => (
             <motion.div
               key={i}
