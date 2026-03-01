@@ -3,8 +3,8 @@ import { Monitor, Users, Clock } from "lucide-react";
 
 const stats = [
 { icon: Monitor, label: "Systems Built", value: "50+" },
-{ icon: Users, label: "Agencies Scaled", value: "5+" },
-{ icon: Clock, label: "Hours Saved", value: "1,000+" }];
+{ icon: Users, label: "Agencies Scaled", value: "12+" },
+{ icon: Clock, label: "Hours Saved", value: "10,000+" }];
 
 
 const FounderBar = () => {
@@ -29,10 +29,17 @@ const FounderBar = () => {
           <div>
             <p className="font-mono font-semibold text-foreground text-lg">Unaiza Masood</p>
             <p className="text-sm text-primary font-mono mb-3">Founder, AutonixLab</p>
-            <p className="text-sm text-muted-foreground font-sans max-w-md leading-relaxed">I architect zero-touch automation systems that free agency founders from operational chaos by turning manual workflows into machines that run 24/7.
+            <p className="text-sm text-muted-foreground font-sans max-w-md leading-relaxed">I build automated systems for agency founders who are tired of doing everything manually.
 
+I’ve seen how much time gets wasted on small repetitive tasks like follow-ups, organizing leads, moving data around, checking the same things again and again. It’s exhausting.
 
-            </p>
+So I create systems that run in the background 24/7.
+
+Not to replace people. But to give them their time back.
+
+Because when machines handle the boring stuff, humans can focus on ideas, creativity, strategy, and making more money.
+
+I believe your time should go to growth, not busywork.</p>
           </div>
         </div>
 
@@ -44,12 +51,7 @@ const FounderBar = () => {
                 <p className="font-mono font-bold text-foreground text-lg">{stat.value}</p>
                 <p className="text-xs text-muted-foreground font-sans">{stat.label}</p>
               </div>
-            </div>
-          )}
+            </div>)}
         </div>
       </div>
-    </motion.section>);
-
-};
-
-export default FounderBar;
+    </motion.section>);};export default FounderBar;
