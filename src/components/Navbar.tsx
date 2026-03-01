@@ -20,6 +20,9 @@ const Navbar = () => {
           <a href="#testimonials" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-sans">
             Signals
           </a>
+          <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-sans">
+            Contact
+          </a>
           <a
             href="https://calendly.com"
             target="_blank"
@@ -41,13 +44,18 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      {menuOpen && (
-        <div className="sm:hidden border-t border-border bg-background/95 backdrop-blur-md px-4 py-4 space-y-3">
+      <div
+        className={`sm:hidden border-t border-border bg-background/95 backdrop-blur-md px-4 overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-60 py-4 opacity-100" : "max-h-0 py-0 opacity-0"}`}
+      >
+        <div className="space-y-3">
           <a href="#case-studies" onClick={() => setMenuOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground font-sans">
             Systems
           </a>
           <a href="#testimonials" onClick={() => setMenuOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground font-sans">
             Signals
+          </a>
+          <a href="#contact" onClick={() => setMenuOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground font-sans">
+            Contact
           </a>
           <a
             href="https://calendly.com"
@@ -58,7 +66,7 @@ const Navbar = () => {
             Book a Call
           </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

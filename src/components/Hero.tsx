@@ -1,54 +1,16 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const bootLines = [
-  { text: "> AutonixLab Systems Initializing...", delay: 0 },
-  { text: "> Loading modules: AI_Engine, Workflow_Orchestrator, Lead_Processor", delay: 800 },
-  { text: "> Founder: Unaiza Masood", delay: 1600 },
-  { text: "> Status: Operational ✓", delay: 2400 },
-];
-
 const Hero = () => {
-  const [visibleLines, setVisibleLines] = useState(0);
-  const [bootComplete, setBootComplete] = useState(false);
-
-  useEffect(() => {
-    const timers = bootLines.map((line, i) =>
-      setTimeout(() => setVisibleLines(i + 1), line.delay)
-    );
-    const completeTimer = setTimeout(() => setBootComplete(true), 3200);
-    return () => {
-      timers.forEach(clearTimeout);
-      clearTimeout(completeTimer);
-    };
-  }, []);
-
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30" />
+      {/* Matrix rain canvas */}
+      <MatrixRain />
 
       <div className="relative z-10 max-w-4xl mx-auto w-full text-center">
-        {/* Boot sequence */}
-        <div className={`font-mono text-xs sm:text-sm md:text-base mb-8 sm:mb-12 space-y-2 transition-opacity duration-500 ${bootComplete ? "opacity-30" : "opacity-100"}`}>
-          {bootLines.slice(0, visibleLines).map((line, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className={`${i === bootLines.length - 1 ? "text-success" : "terminal-text"} break-words`}
-            >
-              {line.text}
-              {i === visibleLines - 1 && !bootComplete && (
-                <span className="cursor-blink ml-1 text-primary">█</span>
-              )}
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Main headline */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={bootComplete ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6">
@@ -78,6 +40,66 @@ const Hero = () => {
         <span className="font-mono text-primary text-xl sm:text-2xl">▼</span>
       </motion.div>
     </section>
+  );
+};
+
+// Lightweight matrix rain at 5% opacity
+import { useEffect, useRef } from "react";
+
+const MatrixRain = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animId: number;
+    const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノ";
+    const fontSize = 14;
+    let columns: number;
+    let drops: number[];
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = Array(columns).fill(1).map(() => Math.random() * -100);
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    const draw = () => {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00FF41";
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+      animId = requestAnimationFrame(draw);
+    };
+
+    draw();
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full opacity-[0.05] pointer-events-none"
+    />
   );
 };
 
