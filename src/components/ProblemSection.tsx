@@ -15,7 +15,7 @@ const ProblemSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-5xl font-bold mb-10 sm:mb-12"
+          className="text-2xl sm:text-3xl md:text-5xl font-bold mb-10 sm:mb-12 mt-4"
         >
           Your Agency Is Stuck In{" "}
           <span className="text-gradient-orange">Manual Mode</span>
