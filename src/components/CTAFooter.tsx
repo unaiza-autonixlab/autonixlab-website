@@ -30,7 +30,7 @@ const CTAFooter = () => {
 
     setStatus("sending");
     try {
-      const res = await fetch("https://formspree.io/f/xpwzgkqo", {
+      const res = await fetch("https://formspree.io/f/mdalvyqk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(result.data)
