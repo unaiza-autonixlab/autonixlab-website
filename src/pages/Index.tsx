@@ -1,12 +1,28 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import FounderBar from "@/components/FounderBar";
+import ProblemSection from "@/components/ProblemSection";
+import CaseStudyCards from "@/components/CaseStudyCards";
+import ServicesSection from "@/components/ServicesSection";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import CTAFooter from "@/components/CTAFooter";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <Hero />
+      <FounderBar />
+      <ProblemSection />
+      <CaseStudyCards />
+      <ServicesSection />
+      <ProcessTimeline />
+      <CTAFooter />
+      <footer className="py-8 px-6 border-t border-border text-center">
+        <p className="text-xs text-muted-foreground font-mono">
+          © 2026 AutonixLab. Built by systems, for systems people.
+        </p>
+      </footer>
     </div>
   );
 };
