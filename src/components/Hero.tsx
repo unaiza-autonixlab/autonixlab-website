@@ -3,7 +3,7 @@ import FlickerTriangle from "./FlickerTriangle";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-32 sm:pt-36 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30" />
       {/* Matrix rain canvas */}
       <MatrixRain />
