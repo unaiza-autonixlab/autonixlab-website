@@ -70,19 +70,17 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
     >
       <div className={`flip-card-inner w-full h-full relative ${flipped ? "flipped" : ""}`}>
         {/* Front */}
-        <div className="flip-card-front absolute inset-0 bg-card border border-border rounded-lg overflow-hidden hover:shadow-[0_8px_30px_hsl(20_100%_60%/0.2)] transition-shadow duration-300 hover:-translate-y-2 flex flex-col">
-          {/* Image placeholder */}
+        <div className="flip-card-front absolute inset-0 bg-card border border-border rounded-lg overflow-hidden hover:shadow-[0_8px_30px_hsl(20_100%_60%/0.2)] transition-all duration-300 hover:-translate-y-2 flex flex-col">
           <div className="h-[55%] bg-secondary flex items-center justify-center border-b border-border relative">
             <div className="text-center">
-              <Terminal className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
+              <Terminal className="w-10 h-10 sm:w-12 sm:h-12 text-muted-foreground mx-auto mb-2" />
               <p className="text-xs text-muted-foreground font-mono">System Screenshot</p>
             </div>
           </div>
-          {/* Info */}
-          <div className="p-5 flex-1 flex flex-col justify-between">
+          <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
             <div>
-              <h3 className="font-mono font-bold text-lg text-foreground mb-2">{study.name}</h3>
-              <p className="text-sm text-muted-foreground font-sans leading-relaxed">{study.oneLiner}</p>
+              <h3 className="font-mono font-bold text-base sm:text-lg text-foreground mb-2">{study.name}</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground font-sans leading-relaxed">{study.oneLiner}</p>
             </div>
             <div className="flex justify-end">
               <Terminal className="w-4 h-4 text-primary" />
@@ -91,7 +89,7 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
         </div>
 
         {/* Back */}
-        <div className="flip-card-back absolute inset-0 bg-card border border-primary rounded-lg overflow-hidden p-5 flex flex-col">
+        <div className="flip-card-back absolute inset-0 bg-card border border-primary rounded-lg overflow-hidden p-4 sm:p-5 flex flex-col">
           <h3 className="font-mono font-bold text-primary mb-3">{study.name}</h3>
           
           <p className="text-[10px] uppercase tracking-widest text-foreground font-mono mb-1">The Problem</p>
@@ -100,7 +98,6 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
           <p className="text-[10px] uppercase tracking-widest text-primary font-mono mb-1">The Solution</p>
           <p className="text-xs text-muted-foreground font-sans mb-3 leading-relaxed line-clamp-2">{study.solution}</p>
 
-          {/* Results table */}
           <div className="border border-border rounded overflow-hidden mb-3 text-xs">
             <div className="grid grid-cols-3 bg-primary/20 font-mono text-primary">
               <div className="p-1.5 border-r border-border">Metric</div>
@@ -116,7 +113,6 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
             ))}
           </div>
 
-          {/* Quote */}
           <div className="border-l-2 border-primary pl-3 mb-3">
             <p className="text-xs italic text-muted-foreground font-sans">"{study.quote}"</p>
             <p className="text-[10px] text-muted-foreground mt-1">— {study.quoteAuthor}</p>
@@ -124,7 +120,7 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
 
           <Link
             to={`/case-study/${study.slug}`}
-            className="mt-auto text-xs font-mono text-primary flex items-center gap-1 hover:gap-2 transition-all"
+            className="mt-auto text-xs font-mono text-primary flex items-center justify-center gap-1 hover:gap-2 transition-all"
             onClick={(e) => e.stopPropagation()}
           >
             View Full Study <ArrowRight className="w-3 h-3" />
@@ -137,21 +133,21 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
 
 const CaseStudyCards = () => {
   return (
-    <section id="case-studies" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="case-studies" className="py-20 sm:py-24 px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-10 sm:mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Deployed Systems</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">Deployed Systems</h2>
           <p className="text-muted-foreground font-sans">
             Each system is live, operational, and generating ROI within 14 days
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {caseStudies.map((study, i) => (
             <motion.div
               key={study.slug}

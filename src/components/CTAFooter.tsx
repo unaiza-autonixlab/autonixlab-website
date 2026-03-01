@@ -5,14 +5,14 @@ const CTAFooter = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-br from-primary/90 to-accent/90 relative overflow-hidden">
+    <section className="py-20 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-primary/90 to-accent/90 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-10" />
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-bold text-primary-foreground mb-4"
+          className="text-2xl sm:text-3xl md:text-5xl font-bold text-primary-foreground mb-4"
         >
           Ready to Exit Manual Mode?
         </motion.h2>
@@ -21,7 +21,7 @@ const CTAFooter = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-lg text-primary-foreground/80 font-sans mb-10"
+          className="text-base sm:text-lg text-primary-foreground/80 font-sans mb-8 sm:mb-10"
         >
           Book a 20-minute diagnostic. We'll map your biggest bottleneck.
         </motion.p>
