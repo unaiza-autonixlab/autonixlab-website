@@ -7,8 +7,8 @@ import leadScoreImg from "@/assets/blog_post_ss.png";
 import leadMachineImg from "@/assets/lead_machine_ss.png";
 
 const caseStudyImages: Record<string, string> = {
-  "compete-iq": competeIqImg,
-  "lead-score": leadScoreImg,
+  "compete-content-iq": competeIqImg,
+  "speed-to-lead-os": leadScoreImg,
   "lead-machine": leadMachineImg,
 };
 
@@ -23,8 +23,8 @@ const allCaseStudies: Record<string, {
   revenueImpact: string;
   deployed: string;
 }> = {
-  "compete-iq": {
-    name: "COMPETE IQ",
+  "compete-content-iq": {
+    name: "COMPETE CONTENT IQ",
     problem: "Marketing agencies spend 15+ hours weekly manually tracking competitor content, pricing changes, and campaign strategies. By the time insights reach the strategy team, they're already outdated. Teams rely on gut feeling rather than data, leading to campaigns that miss the mark and budgets that bleed out on underperforming channels.",
     solution: "An automated brand intelligence scraper that monitors competitor websites, social channels, and ad libraries in real-time, delivering structured insights to your dashboard every morning. The system categorizes competitor moves by threat level, identifies content gaps, and suggests counter-strategies based on historical performance data.",
     results: [
@@ -38,8 +38,8 @@ const allCaseStudies: Record<string, {
     revenueImpact: "$45,000/yr",
     deployed: "12 days",
   },
-  "lead-score": {
-    name: "LEAD SCORE",
+  "speed-to-lead-os": {
+    name: "SPEED TO LEAD OS",
     problem: "Sales teams waste 60% of their calls on unqualified leads. Without intelligent scoring, every inquiry gets the same treatment regardless of budget, timeline, or fit. The result: burnt-out sales reps, missed high-value prospects, and a conversion rate that embarrasses the marketing team who generated those leads.",
     solution: "An AI-powered lead qualification engine that scores every inbound lead in seconds, auto-routes high-value prospects to sales, and nurtures lower-tier leads via personalized email sequences. The system learns from closed deals to continuously improve scoring accuracy.",
     results: [
