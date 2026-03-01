@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const services = [
   {
-    cmd: "compete-content-iq",
+    cmd: "complete-content-iq",
     desc: "Market Intelligence",
     outcome:
       "Automatically monitors competitor websites, ads, and content daily. Delivers structured insights to your dashboard every morning — zero manual research required. Expect 15+ hours saved per week.",

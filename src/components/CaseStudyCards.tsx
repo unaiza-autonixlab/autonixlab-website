@@ -20,8 +20,8 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
-    slug: "compete-content-iq",
-    name: "COMPETE CONTENT IQ",
+    slug: "complete-content-iq",
+    name: "COMPLETE CONTENT IQ",
     oneLiner: "Your competitors publish content that works. You're guessing. Get a playbook that works for you automatically.",
     image: competeIqImg,
     problem: "Marketing agencies spend 15+ hours weekly manually tracking competitor content, pricing changes, and campaign strategies. By the time insights reach the strategy team, they're already outdated.",
