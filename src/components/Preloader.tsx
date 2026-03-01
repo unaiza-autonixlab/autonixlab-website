@@ -33,7 +33,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     <div
       className={`fixed inset-0 z-[9999] bg-[#000000] flex items-start transition-opacity duration-[600ms] ${fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"}`}
     >
-      <div className="pt-[40vh] pl-[5vw] sm:pl-[60px] font-mono text-[18px] sm:text-[20px] font-normal space-y-3">
+      <div className="pt-[40vh] pl-[5vw] sm:pl-[60px] font-mono text-[14px] sm:text-[18px] md:text-[20px] font-normal space-y-3">
         <p className="preloader-line" style={{ textShadow: "0 0 8px #00FF41", color: "#00FF41" }}>
           AutonixLab Systems Initializing{dots.padEnd(3, "\u00A0")}
         </p>
