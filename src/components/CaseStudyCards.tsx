@@ -20,9 +20,9 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
-    slug: "compete-iq",
-    name: "COMPETE IQ",
-    oneLiner: "Your competitors publish content that works. You're guessing. This steals their playbook automatically.",
+    slug: "compete-content-iq",
+    name: "COMPETE CONTENT IQ",
+    oneLiner: "Your competitors publish content that works. You're guessing. Get a playbook that works for you automatically.",
     image: competeIqImg,
     problem: "Marketing agencies spend 15+ hours weekly manually tracking competitor content, pricing changes, and campaign strategies. By the time insights reach the strategy team, they're already outdated.",
     solution: "An automated brand intelligence scraper that monitors competitor websites, social channels, and ad libraries in real-time, delivering structured insights to your dashboard every morning.",
@@ -35,8 +35,8 @@ const caseStudies: CaseStudy[] = [
     quoteAuthor: "Agency Founder, 8-person team",
   },
   {
-    slug: "lead-score",
-    name: "LEAD SCORE",
+    slug: "speed-to-lead-os",
+    name: "SPEED TO LEAD OS",
     oneLiner: "Stop wasting sales calls on $500-budget prospects. AI qualifies every lead in 3 seconds.",
     image: leadScoreImg,
     problem: "Sales teams waste 60% of their calls on unqualified leads. Without intelligent scoring, every inquiry gets the same treatment regardless of budget, timeline, or fit.",

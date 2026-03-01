@@ -14,7 +14,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6">
-            I Build Zero-Touch Systems That Replace Your{" "}
+            We Build Zero-Touch Systems That Replace Your{" "}
             <span className="text-gradient-orange">Operational Chaos</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 font-sans">

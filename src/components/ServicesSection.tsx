@@ -3,13 +3,13 @@ import { useState } from "react";
 
 const services = [
   {
-    cmd: "compete-iq",
+    cmd: "compete-content-iq",
     desc: "Market Intelligence",
     outcome:
       "Automatically monitors competitor websites, ads, and content daily. Delivers structured insights to your dashboard every morning — zero manual research required. Expect 15+ hours saved per week.",
   },
   {
-    cmd: "lead-score",
+    cmd: "speed-to-lead-os",
     desc: "Qualification Engine",
     outcome:
       "AI scores every inbound lead in under 3 seconds based on budget, timeline, and fit. High-value prospects get routed to sales instantly. Low-tier leads enter automated nurture sequences.",
