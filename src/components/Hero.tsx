@@ -35,14 +35,6 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2"
-        animate={{ opacity: [0.3, 1, 0.3] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <span className="font-mono text-primary text-xl sm:text-2xl">▼</span>
-      </motion.div>
     </section>
   );
 };
