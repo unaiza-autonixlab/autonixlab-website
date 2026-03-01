@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import FlickerTriangle from "./FlickerTriangle";
 
 const Hero = () => {
   return (
@@ -18,16 +19,19 @@ const Hero = () => {
             <span className="text-gradient-orange">Operational Chaos</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 font-sans">
-            AI automation for marketing agencies stuck at 1-10 employees
+            AI automation for marketing agencies ready to scale
           </p>
-          <a
-            href="https://calendly.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline-glow inline-block text-sm md:text-base px-6 sm:px-8 py-3 sm:py-4"
-          >
-            [ Book a Diagnostic Call ]
-          </a>
+          <div className="inline-flex flex-col items-center">
+            <FlickerTriangle className="mb-2" />
+            <a
+              href="https://calendly.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-glow inline-block text-sm md:text-base px-6 sm:px-8 py-3 sm:py-4"
+            >
+              [ Book a Diagnostic Call ]
+            </a>
+          </div>
         </motion.div>
       </div>
 
