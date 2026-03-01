@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { z } from "zod";
-import FlickerTriangle from "./FlickerTriangle";
+
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name required").max(100),
@@ -120,16 +120,13 @@ const CTAFooter = () => {
               />
               {errors.message && <p className="text-xs mt-1 text-background font-mono">[ERROR] {errors.message}</p>}
             </div>
-            <div className="flex flex-col items-center">
-              <FlickerTriangle className="mb-2" />
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="bg-background text-foreground font-mono font-semibold px-6 py-3 rounded-md hover:bg-secondary transition-colors text-sm whitespace-nowrap disabled:opacity-50"
-              >
-                {status === "sending" ? "[ Transmitting... ]" : "[ Initialize System ]"}
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="bg-background text-foreground font-mono font-semibold px-6 py-3 rounded-md hover:bg-secondary transition-colors text-sm whitespace-nowrap disabled:opacity-50"
+            >
+              {status === "sending" ? "[ Transmitting... ]" : "[ Initialize System ]"}
+            </button>
             {status === "error" && (
               <p className="text-xs text-background font-mono text-center">[ERROR] Transmission failed. Try again.</p>
             )}
