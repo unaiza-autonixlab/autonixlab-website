@@ -7,6 +7,7 @@ interface CaseStudy {
   slug: string;
   name: string;
   oneLiner: string;
+  image?: string;
   problem: string;
   solution: string;
   results: { metric: string; before: string; after: string }[];
@@ -71,11 +72,15 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
       <div className={`flip-card-inner w-full h-full relative ${flipped ? "flipped" : ""}`}>
         {/* Front */}
         <div className="flip-card-front absolute inset-0 bg-card border border-border rounded-lg overflow-hidden hover:shadow-[0_8px_30px_hsl(20_100%_60%/0.2)] transition-all duration-300 hover:-translate-y-2 flex flex-col">
-          <div className="h-[55%] bg-secondary flex items-center justify-center border-b border-border relative">
-            <div className="text-center">
-              <Terminal className="w-10 h-10 sm:w-12 sm:h-12 text-muted-foreground mx-auto mb-2" />
-              <p className="text-xs text-muted-foreground font-mono">System Screenshot</p>
-            </div>
+          <div className="h-[55%] bg-secondary flex items-center justify-center border-b border-border relative overflow-hidden">
+            {study.image ? (
+              <img src={study.image} alt={`${study.name} screenshot`} className="w-full h-full object-cover" />
+            ) : (
+              <div className="text-center">
+                <Terminal className="w-10 h-10 sm:w-12 sm:h-12 text-muted-foreground mx-auto mb-2" />
+                <p className="text-xs text-muted-foreground font-mono">System Screenshot</p>
+              </div>
+            )}
           </div>
           <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
             <div>
