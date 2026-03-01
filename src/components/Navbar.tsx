@@ -24,7 +24,7 @@ const Navbar = () => {
             Contact
           </a>
           <a
-            href="https://calendar.app.google/vqvbuzMFhMSxbn5a8"
+            href="https://calendly.com/autonixlab/discovery-call"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-mono border border-primary text-primary px-4 py-2 rounded-md hover:bg-primary hover:text-primary-foreground transition-all"
@@ -58,7 +58,7 @@ const Navbar = () => {
             Contact
           </a>
           <a
-            href="https://calendar.app.google/vqvbuzMFhMSxbn5a8"
+            href="https://calendly.com/autonixlab/discovery-call"
             target="_blank"
             rel="noopener noreferrer"
             className="block text-sm font-mono border border-primary text-primary px-4 py-2 rounded-md text-center hover:bg-primary hover:text-primary-foreground transition-all"

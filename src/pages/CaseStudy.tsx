@@ -123,7 +123,7 @@ const CaseStudyPage = () => {
             </div>
 
             <a
-              href="https://calendar.app.google/vqvbuzMFhMSxbn5a8"
+              href="https://calendly.com/autonixlab/discovery-call"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary-glow block text-center text-sm mb-4 w-full"
@@ -194,7 +194,7 @@ const CaseStudyPage = () => {
 
             {/* Final CTA */}
             <a
-              href="https://calendar.app.google/vqvbuzMFhMSxbn5a8"
+              href="https://calendly.com/autonixlab/discovery-call"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline-glow inline-block text-sm"
