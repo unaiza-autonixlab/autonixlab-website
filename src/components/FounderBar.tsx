@@ -20,9 +20,11 @@ const FounderBar = () => {
         <div className="flex flex-col items-center text-center gap-4">
           {/* Headshot placeholder */}
           <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-primary bg-card flex items-center justify-center glow-orange overflow-hidden">
-            {/* Replace this div with an <img> when you upload your headshot */}
-            <span className="text-primary font-mono font-bold text-2xl sm:text-3xl">
-            </span>
+            <img
+              src="/headshot.jpg"
+              alt="Unaiza Masood"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div>
             <p className="font-mono font-semibold text-foreground text-lg">Unaiza Masood</p>
