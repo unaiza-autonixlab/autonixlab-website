@@ -7,7 +7,7 @@ import leadScoreImg from "@/assets/blog_post_ss.png";
 import leadMachineImg from "@/assets/lead_machine_ss.png";
 
 const caseStudyImages: Record<string, string> = {
-  "compete-content-iq": competeIqImg,
+  "complete-content-iq": competeIqImg,
   "speed-to-lead-os": leadScoreImg,
   "lead-machine": leadMachineImg,
 };
@@ -23,8 +23,8 @@ const allCaseStudies: Record<string, {
   revenueImpact: string;
   deployed: string;
 }> = {
-  "compete-content-iq": {
-    name: "COMPETE CONTENT IQ",
+  "complete-content-iq": {
+    name: "COMPLETE CONTENT IQ",
     problem: "Marketing agencies spend 15+ hours weekly manually tracking competitor content, pricing changes, and campaign strategies. By the time insights reach the strategy team, they're already outdated. Teams rely on gut feeling rather than data, leading to campaigns that miss the mark and budgets that bleed out on underperforming channels.",
     solution: "An automated brand intelligence scraper that monitors competitor websites, social channels, and ad libraries in real-time, delivering structured insights to your dashboard every morning. The system categorizes competitor moves by threat level, identifies content gaps, and suggests counter-strategies based on historical performance data.",
     results: [
