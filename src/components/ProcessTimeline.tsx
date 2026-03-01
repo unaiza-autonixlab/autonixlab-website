@@ -9,20 +9,19 @@ const steps = [
 
 const ProcessTimeline = () => {
   return (
-    <section className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-20 sm:py-24 px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-bold mb-16"
+          className="text-2xl sm:text-3xl md:text-5xl font-bold mb-12 sm:mb-16"
         >
           Deployment Protocol
         </motion.h2>
 
         {/* Desktop timeline */}
         <div className="hidden md:flex items-start justify-between relative">
-          {/* Connecting line */}
           <motion.div
             className="absolute top-6 left-[10%] right-[10%] h-[2px] bg-primary/30"
             initial={{ scaleX: 0 }}
@@ -31,7 +30,6 @@ const ProcessTimeline = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             style={{ transformOrigin: "left" }}
           />
-
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
@@ -51,15 +49,15 @@ const ProcessTimeline = () => {
         </div>
 
         {/* Mobile timeline */}
-        <div className="md:hidden space-y-6">
+        <div className="md:hidden space-y-5">
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex items-center gap-4"
+              className="flex items-center gap-4 text-left"
             >
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-mono font-bold text-primary-foreground text-xs shrink-0">
                 {step.num}
