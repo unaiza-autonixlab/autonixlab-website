@@ -137,4 +137,18 @@ const CTAFooter = () => {
 
 };
 
+export const FooterBar = () => (
+  <footer className="bg-black border-t border-white/10 py-4 px-6 text-center">
+    <p className="text-white/40 text-xs font-mono">
+      © {new Date().getFullYear()} Autonix Lab. All rights reserved.{" "}
+      
+        href="/privacy-policy"
+        className="text-white/60 hover:text-white underline underline-offset-2 transition-colors"
+      >
+        Privacy Policy
+      </a>
+    </p>
+  </footer>
+);
+
 export default CTAFooter;
