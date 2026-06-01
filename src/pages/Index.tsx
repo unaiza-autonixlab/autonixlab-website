@@ -22,7 +22,13 @@ const Index = () => {
       <CTAFooter />
       <footer className="py-8 px-6 border-t border-border text-center">
         <p className="text-xs text-muted-foreground font-mono">
-          © 2026 AutonixLab. Built by systems, for systems people.
+          © 2026 AutonixLab. Built by systems, for systems people.{" "}
+          
+            href="/privacy-policy"
+            className="underline underline-offset-2 hover:text-foreground transition-colors"
+          >
+            Privacy Policy
+          </a>
         </p>
       </footer>
     </div>
