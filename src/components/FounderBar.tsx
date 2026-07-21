@@ -21,9 +21,11 @@ const FounderBar = () => {
           {/* Headshot placeholder */}
           <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-primary bg-card flex items-center justify-center glow-orange overflow-hidden">
             <img
-
-              alt="Unaiza Masood"
-              className="w-full h-full object-cover" src="/lovable-uploads/b8af770b-9503-4384-998a-1211b612d8f8.png" />
+              width={400}
+              height={400}
+              loading="lazy"
+              alt="Unaiza Masood, founder of Autonix Lab"
+              className="w-full h-full object-cover" src="/founder-unaiza.jpg" />
 
           </div>
           <div>
