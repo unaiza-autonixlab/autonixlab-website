@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 
 const steps = [
-  { num: "01", label: "DIAGNOSTIC", desc: "Map your bottlenecks" },
-  { num: "02", label: "BLUEPRINT", desc: "Design the system" },
-  { num: "03", label: "BUILD", desc: "Deploy in 14 days" },
-  { num: "04", label: "HANDOFF", desc: "You own it forever" },
+  { num: "01", label: "AUDIT", desc: "Find every platform the numbers live in" },
+  { num: "02", label: "ACCESS", desc: "Retrieve and secure the API credentials" },
+  { num: "03", label: "BUILD", desc: "Pipelines into one database" },
+  { num: "04", label: "VALIDATE", desc: "Reconcile each source against its native reporting" },
+  { num: "05", label: "HANDOFF", desc: "Login-protected dashboard, credentials and schema included" },
 ];
 
 const ProcessTimeline = () => {
@@ -17,11 +18,11 @@ const ProcessTimeline = () => {
           viewport={{ once: true }}
           className="text-2xl sm:text-3xl md:text-5xl font-bold mb-12 sm:mb-16"
         >
-          Deployment Protocol
+          How The Build Runs
         </motion.h2>
 
         {/* Desktop timeline */}
-        <div className="hidden md:flex items-start justify-between relative">
+        <div className="hidden md:flex items-start justify-between relative gap-4">
           <motion.div
             className="absolute top-6 left-[10%] right-[10%] h-[2px] bg-primary/30"
             initial={{ scaleX: 0 }}
@@ -37,7 +38,7 @@ const ProcessTimeline = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
-              className="flex flex-col items-center text-center relative z-10"
+              className="flex flex-col items-center text-center relative z-10 flex-1"
             >
               <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center font-mono font-bold text-primary-foreground text-sm mb-4">
                 {step.num}
@@ -69,6 +70,16 @@ const ProcessTimeline = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-xs text-muted-foreground font-sans mt-10 sm:mt-12 max-w-2xl mx-auto"
+        >
+          Step 04 is the one nobody else shows you. A pipeline that pulls data is easy. A pipeline whose totals agree
+          with the platform it came from is the job.
+        </motion.p>
       </div>
     </section>
   );
