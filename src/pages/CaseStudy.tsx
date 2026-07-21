@@ -2,9 +2,9 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, DollarSign, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import pipelineStackImg from "@/assets/brand_brain_ss.png";
-import cookieMonsterImg from "@/assets/blog_post_ss.png";
-import coldEmailImg from "@/assets/lead_machine_ss.png";
+import pipelineStackImg from "@/assets/case-pipeline-stack.svg";
+import cookieMonsterImg from "@/assets/case-cookie-monster.svg";
+import coldEmailImg from "@/assets/case-cold-outbound.svg";
 
 const caseStudyImages: Record<string, string> = {
   "five-pipeline-reporting-stack": pipelineStackImg,
@@ -142,7 +142,7 @@ const CaseStudyPage = () => {
               className="w-full h-64 md:h-80 bg-secondary border border-border rounded-lg overflow-hidden mb-12"
             >
               {slug && caseStudyImages[slug] ? (
-                <img src={caseStudyImages[slug]} alt={`${study.name} screenshot`} className="w-full h-full object-cover" />
+                <img src={caseStudyImages[slug]} alt={`${study.name} architecture diagram`} className="w-full h-full object-cover" />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
                   <p className="text-sm text-muted-foreground font-mono">System Screenshot</p>
