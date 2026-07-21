@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460" role="img" aria-label="Five platform APIs feeding pipelines into Supabase and a React dashboard on Vercel">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 L0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF6B33" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FF6B33" stop-opacity="0.75"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="460" fill="#0A0A0A"/>
+  <rect width="800" height="460" fill="url(#grid)"/>
+
+  <text x="40" y="38" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13" fill="#FF6B33" letter-spacing="2">FIVE PIPELINE STACK</text>
+
+  <!-- Source platforms -->
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13" fill="#FFFFFF">
+    <g>
+      <rect x="40" y="80" width="150" height="40" rx="4" fill="#111111" stroke="rgba(255,255,255,0.12)"/>
+      <text x="58" y="105">Shopify</text>
+    </g>
+    <g>
+      <rect x="40" y="134" width="150" height="40" rx="4" fill="#111111" stroke="rgba(255,255,255,0.12)"/>
+      <text x="58" y="159">Meta Ads</text>
+    </g>
+    <g>
+      <rect x="40" y="188" width="150" height="40" rx="4" fill="#111111" stroke="rgba(255,255,255,0.12)"/>
+      <text x="58" y="213">Google Ads</text>
+    </g>
+    <g>
+      <rect x="40" y="242" width="150" height="40" rx="4" fill="#111111" stroke="rgba(255,255,255,0.12)"/>
+      <text x="58" y="267">Klaviyo</text>
+    </g>
+    <g>
+      <rect x="40" y="296" width="150" height="40" rx="4" fill="#111111" stroke="rgba(255,255,255,0.12)"/>
+      <text x="58" y="321">Impact</text>
+    </g>
+  </g>
+
+  <!-- Flows into the warehouse -->
+  <g fill="none" stroke="url(#flow)" stroke-width="2">
+    <path d="M190 100 C 260 100, 280 208, 350 208"/>
+    <path d="M190 154 C 260 154, 290 208, 350 208"/>
+    <path d="M190 208 L 350 208"/>
+    <path d="M190 262 C 260 262, 290 208, 350 208"/>
+    <path d="M190 316 C 260 316, 280 208, 350 208"/>
+  </g>
+  <g fill="#FF6B33">
+    <circle cx="190" cy="100" r="3"/><circle cx="190" cy="154" r="3"/>
+    <circle cx="190" cy="208" r="3"/><circle cx="190" cy="262" r="3"/>
+    <circle cx="190" cy="316" r="3"/>
+  </g>
+
+  <!-- Warehouse -->
+  <rect x="350" y="168" width="150" height="80" rx="4" fill="#111111" stroke="#FF6B33" stroke-opacity="0.5"/>
+  <text x="425" y="203" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13" fill="#FFFFFF">Supabase</text>
+  <text x="425" y="223" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#8A8A8A">unified schema</text>
+
+  <path d="M500 208 L 560 208" fill="none" stroke="url(#flow)" stroke-width="2"/>
+
+  <!-- Dashboard -->
+  <rect x="560" y="120" width="200" height="176" rx="4" fill="#111111" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="560" y="120" width="200" height="26" rx="4" fill="#161616"/>
+  <circle cx="576" cy="133" r="3.5" fill="#FF6B33" fill-opacity="0.6"/>
+  <circle cx="588" cy="133" r="3.5" fill="rgba(255,255,255,0.18)"/>
+  <circle cx="600" cy="133" r="3.5" fill="rgba(255,255,255,0.18)"/>
+  <g fill="rgba(255,255,255,0.10)">
+    <rect x="576" y="162" width="80" height="8" rx="2"/>
+    <rect x="576" y="180" width="56" height="8" rx="2"/>
+  </g>
+  <g fill="#FF6B33" fill-opacity="0.7">
+    <rect x="576" y="252" width="16" height="26" rx="2"/>
+    <rect x="600" y="238" width="16" height="40" rx="2"/>
+    <rect x="624" y="222" width="16" height="56" rx="2"/>
+    <rect x="648" y="244" width="16" height="34" rx="2"/>
+    <rect x="672" y="210" width="16" height="68" rx="2"/>
+    <rect x="696" y="230" width="16" height="48" rx="2"/>
+  </g>
+  <text x="660" y="313" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#8A8A8A">React / Vercel</text>
+
+  <!-- Validation note -->
+  <line x1="40" y1="378" x2="760" y2="378" stroke="rgba(255,255,255,0.10)"/>
+  <text x="40" y="408" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#FF6B33">✓</text>
+  <text x="62" y="408" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#FFFFFF">each pipeline reconciled against its platform's own reporting</text>
+  <text x="62" y="428" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#8A8A8A">variance held under 1%</text>
+</svg>
