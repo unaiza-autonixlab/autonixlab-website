@@ -2,9 +2,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Terminal, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import pipelineStackImg from "@/assets/brand_brain_ss.png";
-import cookieMonsterImg from "@/assets/blog_post_ss.png";
-import coldEmailImg from "@/assets/lead_machine_ss.png";
+import pipelineStackImg from "@/assets/case-pipeline-stack.svg";
+import cookieMonsterImg from "@/assets/case-cookie-monster.svg";
+import coldEmailImg from "@/assets/case-cold-outbound.svg";
 
 interface CaseStudy {
   slug: string;
@@ -72,7 +72,7 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
         {/* Front */}
         <div className="flip-card-front absolute inset-0 bg-card border border-border rounded-lg overflow-hidden hover:shadow-[0_8px_30px_hsl(20_100%_60%/0.2)] transition-all duration-300 hover:-translate-y-2 flex flex-col">
           <div className="h-[55%] bg-secondary border-b border-border overflow-hidden">
-            <img src={study.image} alt={`${study.name} screenshot`} className="w-full h-full object-cover" />
+            <img src={study.image} alt={`${study.name} architecture diagram`} className="w-full h-full object-cover" />
           </div>
           <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
             <div>
