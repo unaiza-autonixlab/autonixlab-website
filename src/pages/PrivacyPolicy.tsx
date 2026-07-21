@@ -64,8 +64,8 @@ const PrivacyPolicy = () => {
             Autonix Lab uses the Google Ads API to retrieve campaign performance data
             on behalf of clients who have explicitly granted access. Our use of Google
             Ads API data complies with the{" "}
-            
-              href="https://developers.google.com/google-ads/api/docs/api-policy/overview"
+              <a
+                href="https://developers.google.com/google-ads/api/docs/api-policy/overview"
               target="_blank"
               rel="noopener noreferrer"
               className="text-orange-400 hover:text-orange-300 underline"
@@ -73,8 +73,8 @@ const PrivacyPolicy = () => {
               Google Ads API Terms and Conditions
             </a>{" "}
             and the{" "}
-            
-              href="https://developers.google.com/terms/api-services-user-data-policy"
+              <a
+                href="https://developers.google.com/terms/api-services-user-data-policy"
               target="_blank"
               rel="noopener noreferrer"
               className="text-orange-400 hover:text-orange-300 underline"
@@ -93,8 +93,8 @@ const PrivacyPolicy = () => {
             Autonix Lab uses the Meta Marketing API to retrieve ad performance data
             on behalf of clients who have explicitly granted access via a System User
             token or partner access. Our use of Meta data complies with Meta's{" "}
-            
-              href="https://developers.facebook.com/terms/"
+              <a
+                href="https://developers.facebook.com/terms/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-orange-400 hover:text-orange-300 underline"
@@ -102,8 +102,8 @@ const PrivacyPolicy = () => {
               Platform Terms
             </a>{" "}
             and{" "}
-            
-              href="https://developers.facebook.com/devpolicy/"
+              <a
+                href="https://developers.facebook.com/devpolicy/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-orange-400 hover:text-orange-300 underline"
