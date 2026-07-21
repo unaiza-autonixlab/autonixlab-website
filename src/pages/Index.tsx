@@ -21,15 +21,19 @@ const Index = () => {
       <TestimonialsTerminal />
       <CTAFooter />
       <footer className="py-8 px-6 border-t border-border text-center">
-  <p className="text-xs text-muted-foreground font-mono">
-    © 2026 AutonixLab. Built by systems, for systems people.{" "}
-    
-      href="/privacy-policy"
-      className="text-white/60 hover:text-white underline underline-offset-2 transition-colors"
-    >
-      Privacy Policy
-    </a>
-  </p>
-</footer>
+        <p className="text-xs text-muted-foreground font-mono">
+          © {new Date().getFullYear()} Autonix Lab. Marketing data infrastructure for DTC
+          brands and the agencies running them.{" "}
+          <a
+            href="/privacy-policy"
+            className="text-white/60 hover:text-white underline underline-offset-2 transition-colors"
+          >
+            Privacy Policy
+          </a>
+        </p>
+      </footer>
+    </div>
+  );
+};
 
 export default Index;
