@@ -15,10 +15,10 @@ const Navbar = () => {
         {/* Desktop nav */}
         <div className="hidden sm:flex items-center gap-6">
           <a href="#case-studies" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-sans">
-            Systems
+            What I've Built
           </a>
           <a href="#testimonials" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-sans">
-            Signals
+            Validation Log
           </a>
           <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-sans">
             Contact
@@ -49,10 +49,10 @@ const Navbar = () => {
       >
         <div className="space-y-3">
           <a href="#case-studies" onClick={() => setMenuOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground font-sans">
-            Systems
+            What I've Built
           </a>
           <a href="#testimonials" onClick={() => setMenuOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground font-sans">
-            Signals
+            Validation Log
           </a>
           <a href="#contact" onClick={() => setMenuOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground font-sans">
             Contact
