@@ -14,11 +14,13 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6">
-            We Build Zero-Touch Systems That Replace Your{" "}
-            <span className="text-gradient-orange">Operational Chaos</span>
+            Your Client Reporting Lives in a Spreadsheet{" "}
+            <span className="text-gradient-orange">Someone Updates by Hand</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 font-sans">
-            AI automation for marketing agencies ready to scale
+            I build the live data infrastructure that replaces it. Shopify, Meta Ads,
+            Google Ads, Klaviyo and Impact in one dashboard, validated to within 1% of
+            each platform&rsquo;s own reporting.
           </p>
           <div className="inline-flex flex-col items-center">
             <FlickerTriangle className="mb-2" />
