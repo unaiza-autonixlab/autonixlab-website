@@ -3,40 +3,40 @@ import { useState } from "react";
 
 const services = [
   {
-    cmd: "complete-content-iq",
-    desc: "Market Intelligence",
+    cmd: "unified-reporting",
+    desc: "Marketing Data Infrastructure",
     outcome:
-      "Automatically monitors competitor websites, ads, and content daily. Delivers structured insights to your dashboard every morning — zero manual research required. Expect 15+ hours saved per week.",
+      "Five live API pipelines (Shopify, Meta Ads, Google Ads, Klaviyo, Impact) unified in Supabase, with a custom React frontend on Vercel behind a login. Every figure validated to within 1% of each platform's native reporting. Currently running for a $1.5M/yr US DTC supplement brand. Built with Claude Code and delivered solo.",
   },
   {
-    cmd: "speed-to-lead-os",
-    desc: "Qualification Engine",
+    cmd: "cookie-monster",
+    desc: "Instagram Competitor Intel",
     outcome:
-      "AI scores every inbound lead in under 3 seconds based on budget, timeline, and fit. High-value prospects get routed to sales instantly. Low-tier leads enter automated nurture sequences.",
+      "Tracks the competitor Instagram accounts you name and returns structured intelligence reports on what they are posting and how they are positioning it. Reports are delivered to Telegram, so nobody has to log into a dashboard to read them. In use with agency clients.",
   },
   {
-    cmd: "lead-machine",
-    desc: "Outbound Automation",
+    cmd: "prime-suspect",
+    desc: "Amazon Listing Analysis",
     outcome:
-      "Researches prospects, crafts AI-personalized messages, and sequences multi-channel outreach automatically. Books qualified meetings directly into your calendar. 12%+ response rates typical.",
+      "Amazon ASIN and competitor analysis. Give it the ASINs you care about and it returns a written breakdown of how the competing listings are built and positioned. For brands selling on Amazon alongside their own Shopify store.",
   },
   {
-    cmd: "content-calendar",
-    desc: "Asset Production",
+    cmd: "cold-outbound",
+    desc: "Outbound Email System",
     outcome:
-      "Generates a full month of platform-specific content in minutes. Auto-schedules posts, repurposes long-form into short-form, and maintains brand voice across every channel.",
+      "AI-driven cold email covering prospect research, per-prospect message writing, and sequencing. The version running on Autonix Lab's own pipeline holds a 3.68% reply rate and has closed high-ticket work. Deployed against your list and your offer, not a template.",
   },
   {
-    cmd: "brain-box",
-    desc: "Content Intelligence",
+    cmd: "post-malone",
+    desc: "Content Automation",
     outcome:
-      "Analyzes your top-performing content and competitors' wins to predict what topics, formats, and hooks will drive engagement. Data-driven content strategy on autopilot.",
+      "Content automation. Turns source material into platform-specific posts on a schedule, so publishing stops depending on someone remembering to do it. Built to match the voice already in your existing posts.",
   },
   {
-    cmd: "agency-os",
-    desc: "Full Operating System",
+    cmd: "custom-build",
+    desc: "Internal Tooling",
     outcome:
-      "The complete stack: CRM, project management, client reporting, invoicing, and team coordination — all automated and interconnected. One system replaces 8+ tools.",
+      "For the agency work that has no off-the-shelf software yet. Lead routing, client reporting, internal dashboards, and the manual steps sitting between the tools you already pay for. Built on Node.js, Supabase, React, and Vercel with Claude Code. Scoped per agency.",
   },
 ];
 

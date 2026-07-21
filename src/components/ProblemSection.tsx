@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const errors = [
-  { code: "ERROR", msg: "Reporting takes 12 hours every Monday" },
-  { code: "ERROR", msg: "Lead response time: 6 hours (competitor: 6 minutes)" },
-  { code: "ERROR", msg: "Founder is the bottleneck in 8 critical processes" },
+  { code: "ERROR", msg: "Client reporting is a spreadsheet someone updates by hand" },
+  { code: "ERROR", msg: "Shopify, Meta Ads and Google Ads each report a different number" },
+  { code: "ERROR", msg: "Klaviyo and Impact data never reach the same place at the same time" },
 ];
 
 const ProblemSection = () => {
@@ -17,8 +17,8 @@ const ProblemSection = () => {
           viewport={{ once: true }}
           className="text-2xl sm:text-3xl md:text-5xl font-bold mb-10 sm:mb-12 mt-4"
         >
-          Your Agency Is Stuck In{" "}
-          <span className="text-gradient-orange">Manual Mode</span>
+          Your Numbers Live In{" "}
+          <span className="text-gradient-orange">Five Different Dashboards</span>
         </motion.h2>
 
         <div className="space-y-3 sm:space-y-4 mb-10 sm:mb-12 text-center sm:text-left">
@@ -38,7 +38,7 @@ const ProblemSection = () => {
         </div>
 
         <a href="#case-studies" className="btn-outline-glow inline-block text-sm px-6 sm:px-8 py-3 sm:py-4">
-          [ Run Diagnostics ]
+          [ See The Build ]
         </a>
       </div>
     </section>

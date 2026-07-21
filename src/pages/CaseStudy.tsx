@@ -2,71 +2,69 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, DollarSign, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import competeIqImg from "@/assets/brand_brain_ss.png";
-import leadScoreImg from "@/assets/blog_post_ss.png";
-import leadMachineImg from "@/assets/lead_machine_ss.png";
+import pipelineStackImg from "@/assets/brand_brain_ss.png";
+import cookieMonsterImg from "@/assets/blog_post_ss.png";
+import coldEmailImg from "@/assets/lead_machine_ss.png";
 
 const caseStudyImages: Record<string, string> = {
-  "complete-content-iq": competeIqImg,
-  "speed-to-lead-os": leadScoreImg,
-  "lead-machine": leadMachineImg,
+  "five-pipeline-reporting-stack": pipelineStackImg,
+  "cookie-monster": cookieMonsterImg,
+  "cold-email-engine": coldEmailImg,
 };
 
 const allCaseStudies: Record<string, {
   name: string;
   problem: string;
   solution: string;
-  results: { metric: string; before: string; after: string }[];
-  quote: string;
-  quoteAuthor: string;
-  timeSaved: string;
-  revenueImpact: string;
-  deployed: string;
+  scope?: string;
+  results?: { metric: string; before: string; after: string }[];
+  quote?: string;
+  quoteAuthor?: string;
+  stats: { label: string; value: string }[];
 }> = {
-  "complete-content-iq": {
-    name: "COMPLETE CONTENT IQ",
-    problem: "Marketing agencies spend 15+ hours weekly manually tracking competitor content, pricing changes, and campaign strategies. By the time insights reach the strategy team, they're already outdated. Teams rely on gut feeling rather than data, leading to campaigns that miss the mark and budgets that bleed out on underperforming channels.",
-    solution: "An automated brand intelligence scraper that monitors competitor websites, social channels, and ad libraries in real-time, delivering structured insights to your dashboard every morning. The system categorizes competitor moves by threat level, identifies content gaps, and suggests counter-strategies based on historical performance data.",
+  "five-pipeline-reporting-stack": {
+    name: "FIVE PIPELINE STACK",
+    problem:
+      "A $1.5M/yr US DTC supplement brand ran its entire marketing reporting out of a manually updated Excel file. The numbers in it came from five separate platforms: Shopify, Meta Ads, Google Ads, Klaviyo and Impact. Someone had to open each platform, pull the figures and key them in before anyone could look at performance. Nothing in that file reconciled itself, and nothing in it had been checked against the platforms the numbers came from.",
+    solution:
+      "Five live API pipelines, one per platform, built with Claude Code. The data lands unified in Supabase and is surfaced through a custom React frontend deployed on Vercel, login protected so their team can use it directly. Before handover, every pipeline was validated to within 1% of that platform's own native reporting, so the dashboard can be checked against Shopify, Meta, Google, Klaviyo and Impact directly and hold up. A Loop Subscription integration was delivered on top of the agreed scope.",
+    scope:
+      "Delivered solo, start to finish: discovery, API credential retrieval across all five platforms, build, validation and delivery. The credential work was the slowest part of the engagement, not the code. Shopify's 2026 developer dashboard changes and Meta's token architecture each had to be navigated before a single row of data could move. Phase 1 is complete and billed. Phase 2, product level attribution, is scoped.",
     results: [
-      { metric: "Research Time", before: "15 hrs/week", after: "0 hrs/week" },
-      { metric: "Insight Freshness", before: "2 weeks old", after: "Real-time" },
-      { metric: "Competitive Wins", before: "22%", after: "47%" },
+      { metric: "Data Source", before: "Manual Excel file", after: "5 live API pipelines" },
+      { metric: "Places To Look", before: "5 platforms", after: "1 login protected dashboard" },
+      { metric: "Number Accuracy", before: "Hand keyed", after: "Within 1% of native reporting" },
+      { metric: "Data Store", before: "Spreadsheet", after: "Supabase" },
     ],
-    quote: "We went from reacting to competitors to predicting their moves. Game changer.",
-    quoteAuthor: "Agency Founder, 8-person team",
-    timeSaved: "15 hrs/week",
-    revenueImpact: "$45,000/yr",
-    deployed: "12 days",
+    stats: [
+      { label: "Delivery", value: "Solo, end to end" },
+      { label: "Status", value: "Phase 1 complete, billed" },
+      { label: "Validation", value: "Within 1% of native" },
+    ],
   },
-  "speed-to-lead-os": {
-    name: "SPEED TO LEAD OS",
-    problem: "Sales teams waste 60% of their calls on unqualified leads. Without intelligent scoring, every inquiry gets the same treatment regardless of budget, timeline, or fit. The result: burnt-out sales reps, missed high-value prospects, and a conversion rate that embarrasses the marketing team who generated those leads.",
-    solution: "An AI-powered lead qualification engine that scores every inbound lead in seconds, auto-routes high-value prospects to sales, and nurtures lower-tier leads via personalized email sequences. The system learns from closed deals to continuously improve scoring accuracy.",
-    results: [
-      { metric: "Qualification Time", before: "24 hours", after: "3 seconds" },
-      { metric: "Sales Call Quality", before: "32% qualified", after: "89% qualified" },
-      { metric: "Close Rate", before: "12%", after: "34%" },
+  "cookie-monster": {
+    name: "COOKIE MONSTER",
+    problem:
+      "Instagram competitor tracking is manual work. Someone opens the accounts, scrolls, screenshots what looks relevant and drops it into a document that nobody reopens. It happens when there is time for it, which is not on a schedule, and the output is not in a format anyone acts on.",
+    solution:
+      "An automated Instagram competitor intelligence report, compiled and delivered into Telegram rather than another dashboard to log into. It is in use by agency clients and was the first system I productized. The same pattern produced Prime Suspect, which runs Amazon ASIN and competitor analysis reports, and Post Malone, which handles content automation.",
+    stats: [
+      { label: "Delivery", value: "Telegram, automated" },
+      { label: "Status", value: "Running for agency clients" },
+      { label: "Origin", value: "First productized system" },
     ],
-    quote: "Our sales team finally stopped chasing ghosts. Every call is now with someone ready to buy.",
-    quoteAuthor: "Sales Director, Digital Agency",
-    timeSaved: "20 hrs/week",
-    revenueImpact: "$120,000/yr",
-    deployed: "10 days",
   },
-  "lead-machine": {
-    name: "THE LEAD MACHINE",
-    problem: "Agencies rely on referrals and pray for inbound leads. Cold outreach feels spammy, generic, and produces <1% response rates. Growth plateaus without predictable pipeline. Founders know they need outbound but don't have the time, team, or tools to do it without sounding like every other agency in the inbox.",
-    solution: "A full outbound automation engine that researches prospects, crafts personalized messages using AI, sequences multi-channel touchpoints, and books meetings directly into your calendar. Every message references the prospect's specific pain points, recent content, or company news.",
-    results: [
-      { metric: "Response Rate", before: "0.8%", after: "12%" },
-      { metric: "Meetings Booked", before: "3/month", after: "22/month" },
-      { metric: "Pipeline Value", before: "$15K", after: "$180K" },
+  "cold-email-engine": {
+    name: "COLD EMAIL ENGINE",
+    problem:
+      "A solo operator selling technical builds has no sales team and no referral volume to coast on. Generic outbound gets deleted, and the alternative is waiting on inbound that may not arrive.",
+    solution:
+      "An AI driven cold email system, built and run in house on my own pipeline. It reached a 3.68% reply rate and closed high ticket work. Running it on my own book first is why I will talk about what the numbers actually did rather than what the tooling promises.",
+    stats: [
+      { label: "Reply Rate", value: "3.68%" },
+      { label: "Outcome", value: "Closed high ticket work" },
+      { label: "Built By", value: "Solo, in house" },
     ],
-    quote: "We went from feast-or-famine to a predictable pipeline within 3 weeks.",
-    quoteAuthor: "CEO, Growth Marketing Agency",
-    timeSaved: "25 hrs/week",
-    revenueImpact: "$180,000/yr",
-    deployed: "14 days",
   },
 };
 
@@ -102,22 +100,22 @@ const CaseStudyPage = () => {
               <div className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-primary" />
                 <div>
-                  <p className="text-xs text-muted-foreground font-sans">Time Saved</p>
-                  <p className="font-mono font-bold text-foreground">{study.timeSaved}</p>
+                  <p className="text-xs text-muted-foreground font-sans">{study.stats[0].label}</p>
+                  <p className="font-mono font-bold text-foreground">{study.stats[0].value}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <DollarSign className="w-5 h-5 text-primary" />
                 <div>
-                  <p className="text-xs text-muted-foreground font-sans">Revenue Impact</p>
-                  <p className="font-mono font-bold text-foreground">{study.revenueImpact}</p>
+                  <p className="text-xs text-muted-foreground font-sans">{study.stats[1].label}</p>
+                  <p className="font-mono font-bold text-foreground">{study.stats[1].value}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Zap className="w-5 h-5 text-primary" />
                 <div>
-                  <p className="text-xs text-muted-foreground font-sans">Deployed</p>
-                  <p className="font-mono font-bold text-foreground">{study.deployed}</p>
+                  <p className="text-xs text-muted-foreground font-sans">{study.stats[2].label}</p>
+                  <p className="font-mono font-bold text-foreground">{study.stats[2].value}</p>
                 </div>
               </div>
             </div>
@@ -164,33 +162,47 @@ const CaseStudyPage = () => {
               <p className="text-muted-foreground font-sans leading-relaxed mb-12 max-w-[600px]">{study.solution}</p>
             </motion.div>
 
+            {/* Scope */}
+            {study.scope && (
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}>
+                <h2 className="font-mono text-sm uppercase tracking-widest text-primary mb-4">[ SCOPE ]</h2>
+                <p className="text-muted-foreground font-sans leading-relaxed mb-12 max-w-[600px]">{study.scope}</p>
+              </motion.div>
+            )}
+
             {/* Results */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-              <h2 className="font-mono text-sm uppercase tracking-widest text-primary mb-4">[ RESULTS ]</h2>
-              <div className="border border-border rounded-lg overflow-hidden mb-12">
-                <div className="grid grid-cols-3 bg-primary/20 font-mono text-primary text-sm">
-                  <div className="p-3 border-r border-border">Metric</div>
-                  <div className="p-3 border-r border-border">Before</div>
-                  <div className="p-3">After</div>
-                </div>
-                {study.results.map((r, i) => (
-                  <div key={i} className="grid grid-cols-3 border-t border-border text-sm font-sans">
-                    <div className="p-3 border-r border-border text-muted-foreground">{r.metric}</div>
-                    <div className="p-3 border-r border-border text-muted-foreground">{r.before}</div>
-                    <div className="p-3 text-success font-semibold">{r.after}</div>
+            {study.results && study.results.length > 0 && (
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
+                <h2 className="font-mono text-sm uppercase tracking-widest text-primary mb-4">[ RESULTS ]</h2>
+                <div className="border border-border rounded-lg overflow-hidden mb-12">
+                  <div className="grid grid-cols-3 bg-primary/20 font-mono text-primary text-sm">
+                    <div className="p-3 border-r border-border">Metric</div>
+                    <div className="p-3 border-r border-border">Before</div>
+                    <div className="p-3">After</div>
                   </div>
-                ))}
-              </div>
-            </motion.div>
+                  {study.results.map((r, i) => (
+                    <div key={i} className="grid grid-cols-3 border-t border-border text-sm font-sans">
+                      <div className="p-3 border-r border-border text-muted-foreground">{r.metric}</div>
+                      <div className="p-3 border-r border-border text-muted-foreground">{r.before}</div>
+                      <div className="p-3 text-success font-semibold">{r.after}</div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
 
             {/* Testimonial */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
-              <h2 className="font-mono text-sm uppercase tracking-widest text-primary mb-4">[ TESTIMONIAL ]</h2>
-              <blockquote className="border-l-2 border-primary pl-6 py-4 bg-secondary/30 rounded-r-lg mb-12">
-                <p className="italic text-muted-foreground font-sans leading-relaxed">"{study.quote}"</p>
-                <p className="text-sm text-muted-foreground mt-3 font-sans">— {study.quoteAuthor}</p>
-              </blockquote>
-            </motion.div>
+            {study.quote && (
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
+                <h2 className="font-mono text-sm uppercase tracking-widest text-primary mb-4">[ TESTIMONIAL ]</h2>
+                <blockquote className="border-l-2 border-primary pl-6 py-4 bg-secondary/30 rounded-r-lg mb-12">
+                  <p className="italic text-muted-foreground font-sans leading-relaxed">"{study.quote}"</p>
+                  {study.quoteAuthor && (
+                    <p className="text-sm text-muted-foreground mt-3 font-sans">— {study.quoteAuthor}</p>
+                  )}
+                </blockquote>
+              </motion.div>
+            )}
 
             {/* Final CTA */}
             <a

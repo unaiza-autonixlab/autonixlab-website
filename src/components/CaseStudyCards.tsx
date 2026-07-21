@@ -2,9 +2,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Terminal, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import competeIqImg from "@/assets/brand_brain_ss.png";
-import leadScoreImg from "@/assets/blog_post_ss.png";
-import leadMachineImg from "@/assets/lead_machine_ss.png";
+import pipelineStackImg from "@/assets/brand_brain_ss.png";
+import cookieMonsterImg from "@/assets/blog_post_ss.png";
+import coldEmailImg from "@/assets/lead_machine_ss.png";
 
 interface CaseStudy {
   slug: string;
@@ -13,56 +13,49 @@ interface CaseStudy {
   image: string;
   problem: string;
   solution: string;
-  results: { metric: string; before: string; after: string }[];
-  quote: string;
-  quoteAuthor: string;
+  results?: { metric: string; before: string; after: string }[];
+  quote?: string;
+  quoteAuthor?: string;
 }
 
 const caseStudies: CaseStudy[] = [
   {
-    slug: "complete-content-iq",
-    name: "COMPLETE CONTENT IQ",
-    oneLiner: "Your competitors publish content that works. You're guessing. Get a playbook that works for you automatically.",
-    image: competeIqImg,
-    problem: "Marketing agencies spend 15+ hours weekly manually tracking competitor content, pricing changes, and campaign strategies. By the time insights reach the strategy team, they're already outdated.",
-    solution: "An automated brand intelligence scraper that monitors competitor websites, social channels, and ad libraries in real-time, delivering structured insights to your dashboard every morning.",
+    slug: "five-pipeline-reporting-stack",
+    name: "FIVE PIPELINE STACK",
+    oneLiner:
+      "A $1.5M/yr US DTC supplement brand ran its marketing reporting out of a hand updated Excel file fed by five platforms. Now five live API pipelines feed one dashboard.",
+    image: pipelineStackImg,
+    problem:
+      "Every number the brand made decisions on was re-keyed by hand into a spreadsheet from five separate platforms: Shopify, Meta Ads, Google Ads, Klaviyo and Impact. Nothing reconciled itself, and nothing was checked against the platforms it came from.",
+    solution:
+      "Five live API pipelines, built with Claude Code, unified in Supabase and surfaced through a custom React frontend on Vercel, login protected for their team. Every pipeline was validated to within 1% of that platform's own native reporting before handover.",
     results: [
-      { metric: "Research Time", before: "15 hrs/week", after: "0 hrs/week" },
-      { metric: "Insight Freshness", before: "2 weeks old", after: "Real-time" },
-      { metric: "Competitive Wins", before: "22%", after: "47%" },
+      { metric: "Data Source", before: "Manual Excel file", after: "5 live API pipelines" },
+      { metric: "Places To Look", before: "5 platforms", after: "1 login" },
+      { metric: "Number Accuracy", before: "Hand keyed", after: "Within 1% of native" },
     ],
-    quote: "We went from reacting to competitors to predicting their moves. Game changer.",
-    quoteAuthor: "Agency Founder, 8-person team",
   },
   {
-    slug: "speed-to-lead-os",
-    name: "SPEED TO LEAD OS",
-    oneLiner: "Stop wasting sales calls on $500-budget prospects. AI qualifies every lead in 3 seconds.",
-    image: leadScoreImg,
-    problem: "Sales teams waste 60% of their calls on unqualified leads. Without intelligent scoring, every inquiry gets the same treatment regardless of budget, timeline, or fit.",
-    solution: "An AI-powered lead qualification engine that scores every inbound lead in seconds, auto-routes high-value prospects to sales, and nurtures lower-tier leads via personalized email sequences.",
-    results: [
-      { metric: "Qualification Time", before: "24 hours", after: "3 seconds" },
-      { metric: "Sales Call Quality", before: "32% qualified", after: "89% qualified" },
-      { metric: "Close Rate", before: "12%", after: "34%" },
-    ],
-    quote: "Our sales team finally stopped chasing ghosts. Every call is now with someone ready to buy.",
-    quoteAuthor: "Sales Director, Digital Agency",
+    slug: "cookie-monster",
+    name: "COOKIE MONSTER",
+    oneLiner:
+      "Instagram competitor intelligence, compiled and pushed to Telegram. The first system I productized.",
+    image: cookieMonsterImg,
+    problem:
+      "Competitor tracking on Instagram is done by hand, on no schedule, and the findings land in a document nobody reopens. Agencies do not need another dashboard to log into for it.",
+    solution:
+      "An automated Instagram competitor intelligence report delivered straight into Telegram, where the team already is. It runs for agency clients today and became the template for the reports that followed: Prime Suspect for Amazon ASIN and competitor analysis, and Post Malone for content automation.",
   },
   {
-    slug: "lead-machine",
-    name: "THE LEAD MACHINE",
-    oneLiner: "Outbound that doesn't feel like spam. AI-personalized outreach at scale.",
-    image: leadMachineImg,
-    problem: "Agencies rely on referrals and pray for inbound leads. Cold outreach feels spammy, generic, and produces <1% response rates. Growth plateaus without predictable pipeline.",
-    solution: "A full outbound automation engine that researches prospects, crafts personalized messages using AI, sequences multi-channel touchpoints, and books meetings directly into your calendar.",
-    results: [
-      { metric: "Response Rate", before: "0.8%", after: "12%" },
-      { metric: "Meetings Booked", before: "3/month", after: "22/month" },
-      { metric: "Pipeline Value", before: "$15K", after: "$180K" },
-    ],
-    quote: "We went from feast-or-famine to a predictable pipeline within 3 weeks.",
-    quoteAuthor: "CEO, Growth Marketing Agency",
+    slug: "cold-email-engine",
+    name: "COLD EMAIL ENGINE",
+    oneLiner:
+      "The AI driven outbound system I built for my own pipeline. 3.68% reply rate, and it closed high ticket work.",
+    image: coldEmailImg,
+    problem:
+      "Solo consultants selling technical builds have no sales team and no referral volume to fall back on. Generic outbound gets ignored, and the alternative is waiting for inbound that may not arrive.",
+    solution:
+      "An AI driven cold email system built and run in house. It produced a 3.68% reply rate and closed high ticket engagements. It is the same machinery behind the outbound work I build for clients, tested on my own pipeline first.",
   },
 ];
 
@@ -95,32 +88,38 @@ const FlipCard = ({ study }: { study: CaseStudy }) => {
         {/* Back */}
         <div className="flip-card-back absolute inset-0 bg-card border border-primary rounded-lg overflow-hidden p-4 sm:p-5 flex flex-col">
           <h3 className="font-mono font-bold text-primary mb-3">{study.name}</h3>
-          
+
           <p className="text-[10px] uppercase tracking-widest text-foreground font-mono mb-1">The Problem</p>
           <p className="text-xs text-muted-foreground font-sans mb-3 leading-relaxed line-clamp-2">{study.problem}</p>
-          
+
           <p className="text-[10px] uppercase tracking-widest text-primary font-mono mb-1">The Solution</p>
           <p className="text-xs text-muted-foreground font-sans mb-3 leading-relaxed line-clamp-2">{study.solution}</p>
 
-          <div className="border border-border rounded overflow-hidden mb-3 text-xs">
-            <div className="grid grid-cols-3 bg-primary/20 font-mono text-primary">
-              <div className="p-1.5 border-r border-border">Metric</div>
-              <div className="p-1.5 border-r border-border">Before</div>
-              <div className="p-1.5">After</div>
-            </div>
-            {study.results.map((r, i) => (
-              <div key={i} className="grid grid-cols-3 border-t border-border text-muted-foreground font-sans">
-                <div className="p-1.5 border-r border-border">{r.metric}</div>
-                <div className="p-1.5 border-r border-border">{r.before}</div>
-                <div className="p-1.5 text-success font-semibold">{r.after}</div>
+          {study.results && study.results.length > 0 && (
+            <div className="border border-border rounded overflow-hidden mb-3 text-xs">
+              <div className="grid grid-cols-3 bg-primary/20 font-mono text-primary">
+                <div className="p-1.5 border-r border-border">Metric</div>
+                <div className="p-1.5 border-r border-border">Before</div>
+                <div className="p-1.5">After</div>
               </div>
-            ))}
-          </div>
+              {study.results.map((r, i) => (
+                <div key={i} className="grid grid-cols-3 border-t border-border text-muted-foreground font-sans">
+                  <div className="p-1.5 border-r border-border">{r.metric}</div>
+                  <div className="p-1.5 border-r border-border">{r.before}</div>
+                  <div className="p-1.5 text-success font-semibold">{r.after}</div>
+                </div>
+              ))}
+            </div>
+          )}
 
-          <div className="border-l-2 border-primary pl-3 mb-3">
-            <p className="text-xs italic text-muted-foreground font-sans">"{study.quote}"</p>
-            <p className="text-[10px] text-muted-foreground mt-1">— {study.quoteAuthor}</p>
-          </div>
+          {study.quote && (
+            <div className="border-l-2 border-primary pl-3 mb-3">
+              <p className="text-xs italic text-muted-foreground font-sans">"{study.quote}"</p>
+              {study.quoteAuthor && (
+                <p className="text-[10px] text-muted-foreground mt-1">— {study.quoteAuthor}</p>
+              )}
+            </div>
+          )}
 
           <Link
             to={`/case-study/${study.slug}`}
@@ -147,7 +146,7 @@ const CaseStudyCards = () => {
         >
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">Deployed Systems</h2>
           <p className="text-muted-foreground font-sans">
-            Each system is live, operational, and generating ROI within 14 days
+            Custom marketing data infrastructure for DTC brands and the agencies running their spend
           </p>
         </motion.div>
 

@@ -1,67 +1,67 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface Testimonial {
+interface ValidationCheck {
   id: string;
+  label: string;
   command: string;
-  author: string;
-  role: string;
-  message: string;
-  metric: string;
-  metricValue: string;
+  source: string;
+  scope: string;
+  result: string;
+  note: string;
 }
 
-const testimonials: Testimonial[] = [
+const validationChecks: ValidationCheck[] = [
   {
-    id: "sig_001",
-    command: "cat /var/log/client-signals/agency-founder.log",
-    author: "Sarah K.",
-    role: "Agency Founder, 8-person team",
-    message: "We went from reacting to competitors to predicting their moves. Game changer.",
-    metric: "COMPETITIVE_WINS",
-    metricValue: "+113%",
+    id: "chk_001",
+    label: "shopify",
+    command: "./validate --source=shopify --against=native",
+    source: "Shopify",
+    scope: "Store revenue and order data",
+    result: "within 1% of native reporting",
+    note: "Credentials pulled through Shopify's 2026 developer dashboard changes, then reconciled line by line against the store's own reporting before the pipeline was accepted.",
   },
   {
-    id: "sig_002",
-    command: "cat /var/log/client-signals/sales-director.log",
-    author: "Marcus T.",
-    role: "Sales Director, Digital Agency",
-    message: "Our sales team finally stopped chasing ghosts. Every call is now with someone ready to buy.",
-    metric: "CLOSE_RATE",
-    metricValue: "+183%",
+    id: "chk_002",
+    label: "meta-ads",
+    command: "./validate --source=meta_ads --against=native",
+    source: "Meta Ads",
+    scope: "Ad spend and campaign performance",
+    result: "within 1% of native reporting",
+    note: "Meta's token architecture is the part most builds get wrong. Access was set up to survive expiry, and the numbers were matched back to Ads Manager.",
   },
   {
-    id: "sig_003",
-    command: "cat /var/log/client-signals/ceo-growth.log",
-    author: "Elena R.",
-    role: "CEO, Growth Marketing Agency",
-    message: "We went from feast-or-famine to a predictable pipeline within 3 weeks.",
-    metric: "PIPELINE_VALUE",
-    metricValue: "+1100%",
+    id: "chk_003",
+    label: "google-ads",
+    command: "./validate --source=google_ads --against=native",
+    source: "Google Ads",
+    scope: "Ad spend and campaign performance",
+    result: "within 1% of native reporting",
+    note: "Pulled through the API rather than a scheduled export, so the dashboard is not waiting on a CSV that somebody has to remember to send.",
   },
   {
-    id: "sig_004",
-    command: "cat /var/log/client-signals/ops-lead.log",
-    author: "James W.",
-    role: "Ops Lead, Creative Studio",
-    message: "Monday reporting used to kill half my day. Now it's fully automated — I just review the dashboard.",
-    metric: "TIME_SAVED",
-    metricValue: "12 hrs/week",
+    id: "chk_004",
+    label: "klaviyo",
+    command: "./validate --source=klaviyo --against=native",
+    source: "Klaviyo",
+    scope: "Email and SMS revenue",
+    result: "within 1% of native reporting",
+    note: "Owned-channel revenue sits in the same database as paid, which is the only way the two stop disagreeing with each other.",
   },
   {
-    id: "sig_005",
-    command: "cat /var/log/client-signals/marketing-vp.log",
-    author: "Priya N.",
-    role: "VP Marketing, SaaS Startup",
-    message: "The outbound engine booked 22 meetings in the first month. We couldn't do that with 3 SDRs.",
-    metric: "MEETINGS_BOOKED",
-    metricValue: "22/month",
+    id: "chk_005",
+    label: "impact",
+    command: "./validate --source=impact --against=native",
+    source: "Impact",
+    scope: "Affiliate and partner revenue",
+    result: "within 1% of native reporting",
+    note: "Fifth pipeline of five. A Loop Subscription integration was built on top of this, outside the original scope of the engagement.",
   },
 ];
 
 const TypingText = ({ text, speed = 20, onComplete }: { text: string; speed?: number; onComplete?: () => void }) => {
   const [displayed, setDisplayed] = useState("");
-  
+
   useEffect(() => {
     setDisplayed("");
     let i = 0;
@@ -86,14 +86,14 @@ const TestimonialsTerminal = () => {
   const [commandTyped, setCommandTyped] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const current = testimonials[activeIndex];
+  const current = validationChecks[activeIndex];
 
   // Auto-cycle
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setTyping(true);
       setCommandTyped(false);
-      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+      setActiveIndex((prev) => (prev + 1) % validationChecks.length);
     }, 7000);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -108,7 +108,7 @@ const TestimonialsTerminal = () => {
     intervalRef.current = setInterval(() => {
       setTyping(true);
       setCommandTyped(false);
-      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+      setActiveIndex((prev) => (prev + 1) % validationChecks.length);
     }, 7000);
   };
 
@@ -121,7 +121,7 @@ const TestimonialsTerminal = () => {
           viewport={{ once: true }}
           className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3"
         >
-          Client Signals
+          Validation Log
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -129,7 +129,8 @@ const TestimonialsTerminal = () => {
           viewport={{ once: true }}
           className="text-muted-foreground font-sans mb-10 sm:mb-12 text-sm sm:text-base"
         >
-          Intercepted transmissions from deployed systems
+          Five pipelines built for a $1.5M/yr US DTC supplement brand. Each one checked against the platform's own
+          reporting before it was handed over.
         </motion.p>
 
         {/* Terminal window */}
@@ -144,7 +145,7 @@ const TestimonialsTerminal = () => {
             <div className="w-3 h-3 rounded-full bg-destructive/80" />
             <div className="w-3 h-3 rounded-full bg-primary/60" />
             <div className="w-3 h-3 rounded-full bg-success/60" />
-            <span className="ml-3 text-xs text-muted-foreground font-mono">client-signals — bash</span>
+            <span className="ml-3 text-xs text-muted-foreground font-mono">pipeline-validation — bash</span>
           </div>
 
           {/* Terminal content */}
@@ -185,36 +186,34 @@ const TestimonialsTerminal = () => {
                     className="space-y-3"
                   >
                     <div className="font-mono text-xs text-muted-foreground">
-                      <span className="text-muted-foreground/60">------- SIGNAL DECODED -------</span>
+                      <span className="text-muted-foreground/60">------- RECONCILIATION -------</span>
                     </div>
 
-                    {/* Signal metadata */}
+                    {/* Check metadata */}
                     <div className="font-mono text-xs space-y-1">
                       <div>
-                        <span className="text-muted-foreground">SIGNAL_ID: </span>
+                        <span className="text-muted-foreground">CHECK_ID: </span>
                         <span className="text-foreground">{current.id}</span>
                       </div>
                       <div>
                         <span className="text-muted-foreground">SOURCE: </span>
-                        <span className="text-foreground">{current.author}</span>
-                        <span className="text-muted-foreground"> // {current.role}</span>
+                        <span className="text-foreground">{current.source}</span>
+                        <span className="text-muted-foreground"> // {current.scope}</span>
                       </div>
                       <div>
-                        <span className="text-muted-foreground">IMPACT: </span>
-                        <span className="text-primary font-bold">{current.metric} </span>
-                        <span className="text-success font-bold">{current.metricValue}</span>
+                        <span className="text-muted-foreground">VARIANCE: </span>
+                        <span className="text-primary font-bold">vs. platform native </span>
+                        <span className="text-success font-bold">{current.result}</span>
                       </div>
                     </div>
 
-                    {/* Message */}
+                    {/* Note */}
                     <div className="border-l-2 border-primary pl-4 py-2 mt-2">
-                      <p className="font-sans text-sm sm:text-base text-foreground italic leading-relaxed">
-                        "{current.message}"
-                      </p>
+                      <p className="font-sans text-sm sm:text-base text-foreground leading-relaxed">{current.note}</p>
                     </div>
 
                     <div className="font-mono text-xs text-muted-foreground/60">
-                      <span>------- END SIGNAL -------</span>
+                      <span>------- PIPELINE ACCEPTED -------</span>
                     </div>
                   </motion.div>
                 )}
@@ -222,12 +221,12 @@ const TestimonialsTerminal = () => {
             </AnimatePresence>
           </div>
 
-          {/* Signal selector */}
+          {/* Source selector */}
           <div className="border-t border-border px-4 py-3 flex items-center gap-2 overflow-x-auto">
-            <span className="text-xs text-muted-foreground font-mono shrink-0">SIGNALS:</span>
-            {testimonials.map((t, i) => (
+            <span className="text-xs text-muted-foreground font-mono shrink-0">SOURCES:</span>
+            {validationChecks.map((check, i) => (
               <button
-                key={t.id}
+                key={check.id}
                 onClick={() => handleSelect(i)}
                 className={`text-xs font-mono px-2 sm:px-3 py-1 rounded transition-all shrink-0 ${
                   i === activeIndex
@@ -235,11 +234,21 @@ const TestimonialsTerminal = () => {
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                 }`}
               >
-                {t.id}
+                {check.label}
               </button>
             ))}
           </div>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-xs text-muted-foreground font-mono mt-6 text-left sm:text-center"
+        >
+          Unified in Supabase. Custom React frontend on Vercel, login-protected. Phase 1 complete and billed. Phase 2,
+          product-level attribution, is scoped.
+        </motion.p>
       </div>
     </section>
   );
