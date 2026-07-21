@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Monitor, Users, Clock } from "lucide-react";
+import { Database, Target, TrendingUp } from "lucide-react";
 
 const stats = [
-{ icon: Monitor, label: "Systems Built", value: "50+" },
-{ icon: Users, label: "Agencies Scaled", value: "5+" },
-{ icon: Clock, label: "Hours Saved", value: "1,000+" }];
+{ icon: Database, label: "Platform APIs unified", value: "5" },
+{ icon: Target, label: "Variance vs native reporting", value: "<1%" },
+{ icon: TrendingUp, label: "Client revenue instrumented", value: "$1.5M" }];
 
 
 const FounderBar = () => {
@@ -29,17 +29,23 @@ const FounderBar = () => {
           <div>
             <p className="font-mono font-semibold text-foreground text-lg">Unaiza Masood</p>
             <p className="text-sm text-primary font-mono mb-3">Founder, AutonixLab</p>
-            <p className="text-sm text-muted-foreground font-sans max-w-md leading-relaxed">I build automated systems for agency founders who are tired of doing everything manually.
-
-I’ve seen how much time gets wasted on small repetitive tasks like follow-ups, organizing leads, moving data around, checking the same things again and again. It’s exhausting.
-
-So I create systems that run in the background 24/7.
-
-Not to replace people. But to give them their time back.
-
-Because when machines handle the boring stuff, humans can focus on ideas, creativity, strategy, and making more money.
-
-I believe your time should go to growth, not busywork.</p>
+            <div className="text-sm text-muted-foreground font-sans max-w-md leading-relaxed space-y-3">
+              <p>
+                I came into tech from physiotherapy. No CS degree, no bootcamp. I learned
+                by shipping: Make.com, then n8n, then Claude Code, which is what I build
+                with now alongside Node, Supabase and React.
+              </p>
+              <p>
+                I build the data layer agencies and DTC brands actually run on. Most
+                recently: five API pipelines feeding a live dashboard for a $1.5M US
+                supplement brand whose marketing reporting had been a spreadsheet someone
+                updated by hand every week.
+              </p>
+              <p>
+                I work solo, from Karachi, with US clients. Discovery, credentials, build,
+                validation and delivery are all me.
+              </p>
+            </div>
           </div>
         </div>
 
