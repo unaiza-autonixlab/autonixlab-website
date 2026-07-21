@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460" role="img" aria-label="Competitor Instagram accounts tracked, analysed, and delivered as scheduled reports over Telegram">
+  <defs>
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 L0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="flow2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF6B33" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FF6B33" stop-opacity="0.75"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="460" fill="#0A0A0A"/>
+  <rect width="800" height="460" fill="url(#grid2)"/>
+
+  <text x="40" y="38" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13" fill="#FF6B33" letter-spacing="2">COOKIE MONSTER</text>
+
+  <!-- Tracked accounts -->
+  <text x="40" y="78" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#8A8A8A">tracked accounts</text>
+  <g>
+    <rect x="40" y="94" width="170" height="46" rx="4" fill="#111111" stroke="rgba(255,255,255,0.12)"/>
+    <circle cx="66" cy="117" r="11" fill="none" stroke="#FF6B33" stroke-opacity="0.6" stroke-width="2"/>
+    <circle cx="66" cy="117" r="4" fill="#FF6B33" fill-opacity="0.6"/>
+    <rect x="88" y="107" width="94" height="7" rx="3" fill="rgba(255,255,255,0.16)"/>
+    <rect x="88" y="122" width="64" height="7" rx="3" fill="rgba(255,255,255,0.08)"/>
+  </g>
+  <g>
+    <rect x="40" y="152" width="170" height="46" rx="4" fill="#111111" stroke="rgba(255,255,255,0.12)"/>
+    <circle cx="66" cy="175" r="11" fill="none" stroke="#FF6B33" stroke-opacity="0.6" stroke-width="2"/>
+    <circle cx="66" cy="175" r="4" fill="#FF6B33" fill-opacity="0.6"/>
+    <rect x="88" y="165" width="78" height="7" rx="3" fill="rgba(255,255,255,0.16)"/>
+    <rect x="88" y="180" width="94" height="7" rx="3" fill="rgba(255,255,255,0.08)"/>
+  </g>
+  <g>
+    <rect x="40" y="210" width="170" height="46" rx="4" fill="#111111" stroke="rgba(255,255,255,0.12)"/>
+    <circle cx="66" cy="233" r="11" fill="none" stroke="#FF6B33" stroke-opacity="0.6" stroke-width="2"/>
+    <circle cx="66" cy="233" r="4" fill="#FF6B33" fill-opacity="0.6"/>
+    <rect x="88" y="223" width="88" height="7" rx="3" fill="rgba(255,255,255,0.16)"/>
+    <rect x="88" y="238" width="56" height="7" rx="3" fill="rgba(255,255,255,0.08)"/>
+  </g>
+  <text x="40" y="286" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#8A8A8A">Instagram</text>
+
+  <g fill="none" stroke="url(#flow2)" stroke-width="2">
+    <path d="M210 117 C 270 117, 290 175, 340 175"/>
+    <path d="M210 175 L 340 175"/>
+    <path d="M210 233 C 270 233, 290 175, 340 175"/>
+  </g>
+
+  <!-- Analysis -->
+  <rect x="340" y="135" width="150" height="80" rx="4" fill="#111111" stroke="#FF6B33" stroke-opacity="0.5"/>
+  <text x="415" y="168" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13" fill="#FFFFFF">analysis</text>
+  <text x="415" y="188" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#8A8A8A">what they post</text>
+  <text x="415" y="203" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#8A8A8A">how they position</text>
+
+  <path d="M490 175 L 550 175" fill="none" stroke="url(#flow2)" stroke-width="2"/>
+
+  <!-- Telegram delivery -->
+  <rect x="550" y="94" width="210" height="162" rx="4" fill="#111111" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="550" y="94" width="210" height="26" rx="4" fill="#161616"/>
+  <text x="566" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#8A8A8A">Telegram</text>
+  <g>
+    <rect x="566" y="136" width="150" height="34" rx="8" fill="#1A1A1A"/>
+    <rect x="580" y="146" width="98" height="6" rx="3" fill="rgba(255,255,255,0.20)"/>
+    <rect x="580" y="157" width="66" height="6" rx="3" fill="rgba(255,255,255,0.10)"/>
+  </g>
+  <g>
+    <rect x="566" y="180" width="176" height="34" rx="8" fill="#1A1A1A"/>
+    <rect x="580" y="190" width="120" height="6" rx="3" fill="rgba(255,255,255,0.20)"/>
+    <rect x="580" y="201" width="84" height="6" rx="3" fill="rgba(255,255,255,0.10)"/>
+  </g>
+  <g>
+    <rect x="566" y="224" width="130" height="20" rx="8" fill="#FF6B33" fill-opacity="0.16"/>
+    <rect x="580" y="231" width="88" height="6" rx="3" fill="#FF6B33" fill-opacity="0.7"/>
+  </g>
+  <text x="655" y="286" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#8A8A8A">scheduled reports</text>
+
+  <line x1="40" y1="378" x2="760" y2="378" stroke="rgba(255,255,255,0.10)"/>
+  <text x="40" y="408" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#FF6B33">✓</text>
+  <text x="62" y="408" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#FFFFFF">first productised system, in use with agency clients</text>
+  <text x="62" y="428" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#8A8A8A">no dashboard to log into, the report arrives</text>
+</svg>
