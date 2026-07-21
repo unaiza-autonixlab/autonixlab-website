@@ -54,7 +54,7 @@ const CTAFooter = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-5xl font-bold text-primary-foreground mb-4">WHAT'S YOUR BIGGEST BOTTLENECK?
+          className="text-2xl sm:text-3xl md:text-5xl font-bold text-primary-foreground mb-4">WHERE DOES YOUR REPORTING BREAK?
 
 
         </motion.h2>
@@ -63,7 +63,7 @@ const CTAFooter = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-base sm:text-lg text-primary-foreground/80 font-sans mb-8 sm:mb-10">Let us give you a solution in 20 minutes.
+          className="text-base sm:text-lg text-primary-foreground/80 font-sans mb-8 sm:mb-10">Tell me which platforms you pull from and how the numbers reach your clients today. I will tell you what it takes to put them in one place.
 
 
         </motion.p>
@@ -78,7 +78,7 @@ const CTAFooter = () => {
               &gt; Transmission Sent ✓
             </span>
             <p className="text-primary-foreground/70 text-sm mt-3 font-sans">
-              We'll be in touch within 24 hours.
+              I reply to every message within 24 hours.
             </p>
           </motion.div> :
 
@@ -114,7 +114,7 @@ const CTAFooter = () => {
               <textarea
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              placeholder="Tell us about your bottleneck..."
+              placeholder="Which platforms are you pulling data from, and who updates the report?"
               rows={3}
               className="w-full bg-background text-foreground border border-border rounded-md px-4 py-3 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none" />
 
@@ -125,7 +125,7 @@ const CTAFooter = () => {
             disabled={status === "sending"}
             className="bg-background text-foreground font-mono font-semibold px-6 py-3 rounded-md hover:bg-secondary transition-colors text-sm whitespace-nowrap disabled:opacity-50">
 
-              {status === "sending" ? "[ Transmitting... ]" : "[ Initialize System ]"}
+              {status === "sending" ? "[ Transmitting... ]" : "[ Send Transmission ]"}
             </button>
             {status === "error" &&
           <p className="text-xs text-background font-mono text-center">[ERROR] Transmission failed. Try again.</p>
@@ -141,7 +141,7 @@ export const FooterBar = () => (
   <footer className="bg-black border-t border-white/10 py-4 px-6 text-center">
     <p className="text-white/40 text-xs font-mono">
       © {new Date().getFullYear()} Autonix Lab. All rights reserved.{" "}
-      
+      <a
         href="/privacy-policy"
         className="text-white/60 hover:text-white underline underline-offset-2 transition-colors"
       >
